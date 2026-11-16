@@ -107,3 +107,11 @@ InitTestScene*.unity*
 
 # Auto-generated cache in Assets folder
 /[Aa]ssets/[Ss]ceneDependencyCache*
+Assets/NamespaceFixer/Editor/NamespaceFixerEditor.cs.meta
+Assets/NamespaceFixer/Editor/NamespaceFixerEditor.cs
+Assets/NamespaceFixer/Editor/NamespaceFixerCore.cs.meta
+Assets/NamespaceFixer/Editor/NamespaceFixerCore.cs
+Assets/NamespaceFixer/Editor/NamespaceFixer.Editor.asmdef.meta
+Assets/NamespaceFixer/Editor/NamespaceFixer.Editor.asmdef
+Assets/NamespaceFixer/Editor.meta
+Assets/NamespaceFixer.meta
