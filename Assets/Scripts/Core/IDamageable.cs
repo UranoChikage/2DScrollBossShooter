@@ -1,6 +1,9 @@
 using UnityEngine;
 
-public interface IDamageable
+namespace Core
 {
-    void TakeDamage(float damage);
+    public interface IDamageable
+    {
+        void TakeDamage(float damage);
+    }
 }

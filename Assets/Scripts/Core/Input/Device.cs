@@ -1,7 +1,10 @@
 using UnityEngine;
 
-public enum Device
+namespace Core
 {
-    Keyboard,
-    Gamepad
+    public enum Device
+    {
+        Keyboard,
+        Gamepad
+    }
 }

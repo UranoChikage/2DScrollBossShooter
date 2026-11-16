@@ -1,34 +1,38 @@
 using UnityEngine;
+using Core;
 
-public class PlayerBullet : Bullet
+namespace GamePlay
 {
-    Collider2D collider2D;
+    public class PlayerBullet : Bullet
+    {
+        Collider2D collider2D;
 
-    void Start()
-    {
-        collider2D = GetComponent<Collider2D>();
-        if (collider2D == null)
+        void Start()
         {
-            Debug.LogError("Collider2Dがアタッチされていません。");
+            collider2D = GetComponent<Collider2D>();
+            if (collider2D == null)
+            {
+                Debug.LogError("Collider2Dがアタッチされていません。");
+            }
         }
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        Move();
-    }
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject != gameObject)
+        // Update is called once per frame
+        void Update()
         {
-            if (collision.gameObject.GetComponent<Player>() != null) return;
-            collision.gameObject.GetComponent<IDamageable>()?.TakeDamage(Damage);
-            Return();
+            Move();
         }
-    }
-    public override void Move()
-    {
-        transform.Translate(Vector3.right * Speed * Time.deltaTime);
+        private void OnCollisionEnter2D(Collision2D collision)
+        {
+            if (collision.gameObject != gameObject)
+            {
+                if (collision.gameObject.GetComponent<Player>() != null) return;
+                collision.gameObject.GetComponent<IDamageable>()?.TakeDamage(Damage);
+                Return();
+            }
+        }
+        public override void Move()
+        {
+            transform.Translate(Vector3.right * Speed * Time.deltaTime);
+        }
     }
 }

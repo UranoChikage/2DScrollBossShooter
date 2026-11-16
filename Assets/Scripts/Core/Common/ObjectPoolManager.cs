@@ -2,46 +2,49 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-/// <summary>
-/// 汎用ObjectPool
-/// </summary>
-public class ObjectPoolManager<T> where T : Component
+namespace Core
 {
-    private readonly T prefab;
-    private readonly Transform parent;
-    private Func<T> createFunc;
-    private readonly Queue<T> pool = new Queue<T>();
-
-    public ObjectPoolManager(Func<T> createFunc, T prefab, Transform parent)
+    /// <summary>
+    /// 汎用ObjectPool
+    /// </summary>
+    public class ObjectPoolManager<T> where T : Component
     {
-        this.createFunc = createFunc;
-        this.prefab = prefab;
-        this.parent = parent;
-    }
+        private readonly T prefab;
+        private readonly Transform parent;
+        private Func<T> createFunc;
+        private readonly Queue<T> pool = new Queue<T>();
 
-    //取得
-    public T Get()
-    {
-        T obj;
-
-        if (pool.Count > 0)
+        public ObjectPoolManager(Func<T> createFunc, T prefab, Transform parent)
         {
-            obj = pool.Dequeue();
-        }
-        else
-        {
-            obj = createFunc();
+            this.createFunc = createFunc;
+            this.prefab = prefab;
+            this.parent = parent;
         }
 
-        obj.gameObject.SetActive(true);
+        //取得
+        public T Get()
+        {
+            T obj;
 
-        return obj;
-    }
+            if (pool.Count > 0)
+            {
+                obj = pool.Dequeue();
+            }
+            else
+            {
+                obj = createFunc();
+            }
 
-    //返却
-    public void Release(T obj)
-    {
-        obj.gameObject.SetActive(false);
-        pool.Enqueue(obj);
+            obj.gameObject.SetActive(true);
+
+            return obj;
+        }
+
+        //返却
+        public void Release(T obj)
+        {
+            obj.gameObject.SetActive(false);
+            pool.Enqueue(obj);
+        }
     }
 }
