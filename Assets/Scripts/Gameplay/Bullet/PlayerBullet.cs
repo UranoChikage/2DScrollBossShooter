@@ -5,22 +5,17 @@ namespace GamePlay
 {
     public class PlayerBullet : Bullet
     {
-        Collider2D collider2D;
 
+        [SerializeField] Collider2D collider2D;
+        [SerializeField] float speed = 10f;
+        [SerializeField] float damage = 1f;
         void Start()
         {
-            collider2D = GetComponent<Collider2D>();
-            if (collider2D == null)
-            {
-                Debug.LogError("Collider2Dがアタッチされていません。");
-            }
+            if (collider2D == null) Debug.LogError("Collider2Dがアタッチされていません。");
+            Speed = speed;
+            Damage = damage;
         }
-
-        // Update is called once per frame
-        void Update()
-        {
-            Move();
-        }
+        void Update() => Move();
         private void OnCollisionEnter2D(Collision2D collision)
         {
             if (collision.gameObject != gameObject)

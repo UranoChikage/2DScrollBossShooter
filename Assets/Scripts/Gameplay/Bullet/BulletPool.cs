@@ -10,12 +10,11 @@ namespace GamePlay
     public class BulletPool : MonoBehaviour
     {
         [SerializeField] private Bullet prefab;
-
-        private ObjectPoolManager<Bullet> pool;
+        ObjectPoolManager<Bullet> pool;
 
         private void Awake()
         {
-            pool = new ObjectPoolManager<Bullet>(() =>Create(), prefab, transform);
+            pool = new ObjectPoolManager<Bullet>(() => Create(), prefab, transform);
         }
         Bullet Create()
         {
@@ -24,9 +23,11 @@ namespace GamePlay
             return bullet;
         }
 
-        public Bullet Get()
+        public Bullet Get(Vector3 position)
         {
-            return pool.Get();
+            Bullet bullet = pool.Get();
+            bullet.transform.position = position;
+            return bullet;
         }
 
         public void Release(Bullet bullet)

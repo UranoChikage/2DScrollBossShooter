@@ -4,8 +4,8 @@ namespace GamePlay
     public abstract class Bullet : MonoBehaviour
     {
         BulletPool owner;
-        public float Speed { get; set; }
-        public float Damage { get; set; }
+        public float Speed { get; protected set; }
+        public float Damage { get; protected set; }
 
         public virtual void Initialize(BulletPool bulletPool)
         {
