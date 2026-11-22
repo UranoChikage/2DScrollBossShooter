@@ -33,7 +33,9 @@ namespace GamePlay
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            if (other.TryGetComponent<IBossBullet>(out var bossBullet))
+            // BossBulletのColliderは子オブジェクト(Visual)にあるため、親まで辿って探す
+            var bossBullet = other.GetComponentInParent<IBossBullet>();
+            if (bossBullet != null)
             {
                 bossBullet.TakeBombDamage();
             }
