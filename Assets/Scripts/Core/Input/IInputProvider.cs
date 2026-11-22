@@ -11,7 +11,7 @@ namespace Core
     {
         Vector2 Move { get; }
         bool Fireheld { get; }
-         bool OnCrouched { get; }//しゃがんだタイミングで呼ばれる。
+        bool OnCrouched { get; }//しゃがんだタイミングで呼ばれる。
         event Action OnBombPressed;
         Device LastDevice { get; }
     }

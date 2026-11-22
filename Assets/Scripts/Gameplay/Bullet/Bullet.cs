@@ -3,9 +3,13 @@ namespace GamePlay
 {
     public abstract class Bullet : MonoBehaviour
     {
-        BulletPool owner;
+        protected float lifeTime = 5f;
+        private BulletPool owner;
         public float Speed { get; protected set; }
-        public float Damage { get; protected set; }
+        /// <summary>
+        /// 仕様書にはDamageの概念が記載されていないため基本値は1。
+        /// </summary>
+        public int Damage { get; protected set; }
 
         public virtual void Initialize(BulletPool bulletPool)
         {

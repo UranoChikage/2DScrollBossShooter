@@ -10,13 +10,13 @@ namespace GamePlay
     public class BulletPool : MonoBehaviour
     {
         [SerializeField] private Bullet prefab;
-        ObjectPoolManager<Bullet> pool;
+        private ObjectPoolManager<Bullet> pool;
 
         private void Awake()
         {
             pool = new ObjectPoolManager<Bullet>(() => Create(), prefab, transform);
         }
-        Bullet Create()
+        private Bullet Create()
         {
             Bullet bullet = Instantiate(prefab, transform);
             bullet.Initialize(this);
