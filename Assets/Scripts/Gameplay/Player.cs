@@ -16,7 +16,7 @@ namespace GamePlay
         [SerializeField] private float speed;
         [SerializeField] private float crouchSpeed;
         [Tooltip("Playerの最大体力")]
-        [SerializeField] private const int MaxHealth = 1;
+        [SerializeField] private int maxHealth = 1;
         [Tooltip("クールタイムの長さ")]
         [SerializeField] private float coolTimeDuration = 0.5f;
         [Tooltip("爆弾の数")]
@@ -26,7 +26,7 @@ namespace GamePlay
         [SerializeField] private BulletPool bombPool;
         public event Action GameOverEvent;
 
-        private float currentHealth;
+        private int currentHealth;
         private float currentCoolTime = 0f;
         private bool isCoolTime;
         private InputSystem_Actions inputActions;
@@ -34,13 +34,14 @@ namespace GamePlay
 
         //IInputProvider=========================
         public Vector2 Move { get; private set; }
-        public bool Fireheld { get; private set; }
+        public bool FireHeld { get; private set; }
         public Device LastDevice { get; private set; }
         public event Action OnBombPressed;
         public bool OnCrouched { get; private set; }
         //=========================================
         public void TakeDamage(int damage)
         {
+            if (!isPlaying) return;
             currentHealth -= damage;
             if (IsGameOver()) GameOverEvent?.Invoke();
         }
@@ -48,7 +49,7 @@ namespace GamePlay
         private void Awake()
         {
             InitInputActions();
-            currentHealth = MaxHealth;
+            currentHealth = maxHealth;
             OnBombPressed += Bomb;
             GameOverEvent += StopGame;
         }
@@ -63,19 +64,18 @@ namespace GamePlay
             }
             PlayerMove();
             CoolTimeCount();
-            if (Fireheld && !isCoolTime) Fire();
+            if (FireHeld && !isCoolTime) Fire();
         }
         private void InputUpdate()
         {
             Move = inputActions.Player.Move.ReadValue<Vector2>();
         }
 
-        private Vector2 PlayerMove()
+        private void PlayerMove()
         {
             float moveSpeed = OnCrouched ? crouchSpeed : speed;
             Vector2 dir = Vector2.ClampMagnitude(Move, 1f);
             transform.position += (Vector3)dir * moveSpeed * Time.deltaTime;
-            return dir;
         }
         private void CoolTimeCount()
         {
@@ -117,6 +117,7 @@ namespace GamePlay
         {
             Debug.Log("Game Over");
             isPlaying = false;
+            OnBombPressed -= Bomb;
             //TODO : ゲームオーバー時のAnimation等処理を追加する
         }
 
@@ -158,8 +159,8 @@ namespace GamePlay
         private void InitInputActions()
         {
             inputActions = new InputSystem_Actions();
-            inputActions.Player.Fire.performed += ctx => Fireheld = true;
-            inputActions.Player.Fire.canceled += ctx => Fireheld = false;
+            inputActions.Player.Fire.performed += ctx => FireHeld = true;
+            inputActions.Player.Fire.canceled += ctx => FireHeld = false;
             inputActions.Player.Crouch.performed += ctx => OnCrouched = true;
             inputActions.Player.Crouch.canceled += ctx => OnCrouched = false;
             inputActions.Player.Bomb.performed += ctx => OnBombPressed?.Invoke();
@@ -179,6 +180,7 @@ namespace GamePlay
         {
             inputActions.Dispose();
             OnBombPressed -= Bomb;
+            GameOverEvent -= StopGame;
         }
     }
 }

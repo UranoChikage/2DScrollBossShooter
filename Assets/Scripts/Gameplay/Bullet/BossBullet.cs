@@ -1,5 +1,4 @@
 using UnityEngine;
-
 namespace GamePlay
 {
     public class BossBullet : Bullet

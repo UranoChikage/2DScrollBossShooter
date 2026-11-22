@@ -10,7 +10,7 @@ namespace Core
     public interface IInputProvider
     {
         Vector2 Move { get; }
-        bool Fireheld { get; }
+        bool FireHeld { get; }
         bool OnCrouched { get; }//しゃがんだタイミングで呼ばれる。
         event Action OnBombPressed;
         Device LastDevice { get; }

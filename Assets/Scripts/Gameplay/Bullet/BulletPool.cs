@@ -14,7 +14,7 @@ namespace GamePlay
 
         private void Awake()
         {
-            pool = new ObjectPoolManager<Bullet>(() => Create(), prefab, transform);
+            pool = new ObjectPoolManager<Bullet>(() => Create());
         }
         private Bullet Create()
         {

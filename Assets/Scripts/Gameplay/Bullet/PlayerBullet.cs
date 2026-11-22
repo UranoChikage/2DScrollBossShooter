@@ -16,21 +16,25 @@ namespace GamePlay
         private void Start()
         {
             if (collider2D == null) Debug.LogError("Collider2Dがアタッチされていません。");
+            collider2D.isTrigger = true;
+        }
+        private void Update() => Move();
+        protected override void OnEnable()
+        {
             currentLifeTime = lifeTime;
             Speed = speed;
             Damage = damage;
         }
-        private void Update() => Move();
-        private void OnCollisionEnter2D(Collision2D collision)
+        private void OnTriggerEnter2D(Collider2D collision)
         {
             if (collision.gameObject != gameObject)
             {
                 if (collision.gameObject.GetComponent<Player>() != null) return;
-                if(collision.gameObject.TryGetComponent<IDamegeable>(out var damegable))
+                if (collision.gameObject.TryGetComponent<IDamegeable>(out var damegable))
                 {
                     damegable.TakeDamage(Damage);
+                    Return();
                 }
-                Return();
             }
         }
         public override void Move()

@@ -9,16 +9,12 @@ namespace Core
     /// </summary>
     public class ObjectPoolManager<T> where T : Component
     {
-        private readonly T prefab;
-        private readonly Transform parent;
         private Func<T> createFunc;
         private readonly Queue<T> pool = new Queue<T>();
 
-        public ObjectPoolManager(Func<T> createFunc, T prefab, Transform parent)
+        public ObjectPoolManager(Func<T> createFunc)
         {
             this.createFunc = createFunc;
-            this.prefab = prefab;
-            this.parent = parent;
         }
 
         //取得

@@ -12,7 +12,6 @@ namespace GamePlay
         [SerializeField, Range(0f, 1f)] private float alphaAtMaxScale = 0.7f; // 拡大し終えた時点の不透明度
 
         [SerializeField] private SpriteRenderer sr;
-        private float startScale;
         private float holdTimer;
 
         private void Awake()
@@ -26,8 +25,6 @@ namespace GamePlay
         protected override void OnEnable()
         {
             transform.localScale = Vector3.zero;
-            holdTimer = 0f;
-            startScale = transform.localScale.x;
             holdTimer = 0f;
             SetAlpha(1f);
         }
@@ -50,8 +47,8 @@ namespace GamePlay
                 if (transform.localScale.x >= maxScale)
                     transform.localScale = Vector3.one * maxScale;
 
-                // 拡大した時点では alphaAtMaxScale → 1f に変化するようにする
-                float growT = Mathf.InverseLerp(startScale, maxScale, transform.localScale.x);
+                // 拡大した時点では 1f→alphaAtMaxScaleに変化するようにする
+                float growT = Mathf.InverseLerp(0f, maxScale, transform.localScale.x);
                 SetAlpha(Mathf.Lerp(1f, alphaAtMaxScale, growT));
                 return;
             }
