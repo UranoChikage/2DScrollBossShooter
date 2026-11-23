@@ -9,6 +9,8 @@ namespace GamePlay
     public class BossBullet : Bullet, IBossBullet
     {
         [SerializeField] private Collider2D bulletCollider;
+        [Tooltip("弾の見た目(Visual)のSpriteRenderer。Bossの段階に応じてSpriteを差し替える")]
+        [SerializeField] private SpriteRenderer spriteRenderer;
         [SerializeField] private float speed = 5f;
         [SerializeField] private int damage = 1;
         [Tooltip("画面外に出てしまった場合でも消えるまでの時間(maxHomingDurationより長くすること！)")]
@@ -27,8 +29,19 @@ namespace GamePlay
         private float homingTimer;
         private float currentLifeTime;
 
+        /// <summary>
+        /// 弾のSpriteを差し替える(nullのときは変更しない)<br/>
+        /// プールで使い回されるので、Boss側が発射のたびに呼ぶ！
+        /// </summary>
+        public void SetSprite(Sprite sprite)
+        {
+            if (spriteRenderer == null || sprite == null) return;
+            spriteRenderer.sprite = sprite;
+        }
+
         private void Awake()
         {
+            if (spriteRenderer == null) Debug.LogError("SpriteRendererがアタッチされていません。");
             if (bulletCollider == null)
             {
                 Debug.LogError("Collider2Dがアタッチされていません。");
@@ -77,7 +90,7 @@ namespace GamePlay
             if (isHoming) Homing();
 
             transform.position += (Vector3)(direction * Speed * Time.deltaTime);
-
+            transform.rotation = Quaternion.Euler(0f, 0f, Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg);
             currentLifeTime -= Time.deltaTime;
             if (currentLifeTime <= 0f) Return();
         }

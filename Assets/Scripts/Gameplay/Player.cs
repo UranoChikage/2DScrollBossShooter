@@ -1,9 +1,10 @@
 using Core;
 using GamePlay.Input;
 using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.InputSystem.LowLevel;
+using UnityEngine.InputSystem.Utilities;
 namespace GamePlay
 {
     /// <summary>
@@ -15,8 +16,8 @@ namespace GamePlay
         [Tooltip("Playerの移動速度")]
         [SerializeField] private float speed;
         [SerializeField] private float crouchSpeed;
-        [Tooltip("Playerの最大体力")]
-        [SerializeField] private int maxHealth = 1;
+        [Tooltip("残機(この回数だけ被弾するとゲームオーバー)")]
+        [SerializeField] private int maxHealth = 3;
         [SerializeField] private Vector2 screenMargin = new Vector2(0.5f, 0.5f);
         [Tooltip("クールタイムの長さ")]
         [SerializeField] private float coolTimeDuration = 0.5f;
@@ -27,12 +28,39 @@ namespace GamePlay
         [Header("Playerの弾/爆弾を生成するBulletPool")]
         [SerializeField] private BulletPool bulletPool;
         [SerializeField] private BulletPool bombPool;
+
+        [Header("撃墜・復活のAnimation")]
+        [Tooltip("PlayerShotDown / PlayerRespawn / Fly のStateを持つAnimator")]
+        [SerializeField] private Animator animator;
+        [Tooltip("撃墜Animationのclip(長さの取得に使う)")]
+        [SerializeField] private AnimationClip downClip;
+        [Tooltip("復活Animationのclip(長さの取得に使う)")]
+        [SerializeField] private AnimationClip respawnClip;
+
+        [Header("無敵(復活Animationが終わった直後)")]
+        [Tooltip("点滅させるSpriteRenderer(Visual)")]
+        [SerializeField] private SpriteRenderer spriteRenderer;
+        [Tooltip("無敵の長さ(秒)")]
+        [SerializeField] private float invincibleDuration = 2f;
+        [Tooltip("点滅の切り替え間隔(秒)")]
+        [SerializeField] private float blinkInterval = 0.1f;
         public event Action GameOverEvent;
 
+        /// <summary>撃墜・復活の状態。Bossが発射を止めるときにも参照する。</summary>
+        public PlayerState State { get; private set; } = PlayerState.Alive;
+
+        //Animatorに作ってあるStateの名前
+        private const string IdleStateName = "Fly";
+        private const string DownStateName = "PlayerShotDown";
+        private const string RespawnStateName = "PlayerRespawn";
+
         private int currentHealth;
+        private Vector3 respawnPosition;//復活する位置
+        private bool isInvincible;
         private float currentCoolTime = 0f;
         private bool isCoolTime;
         private InputSystem_Actions inputActions;
+        private IDisposable anyButtonSubscription;//onAnyButtonPressの購読解除用
 
         /// <summary>
         /// ゲームが進行中か(GameManagerがPlayingのときだけtrue)<br/>
@@ -49,16 +77,22 @@ namespace GamePlay
         //=========================================
         public void TakeDamage(int damage)
         {
-            if (!IsPlaying) return;
+            //撃墜・復活Anim中と無敵中はダメージを受けない。
+            if (!IsPlaying || State != PlayerState.Alive || isInvincible) return;
             currentHealth -= damage;
-            if (IsGameOver()) GameOverEvent?.Invoke();
+            if (IsGameOver()) StartCoroutine(GameOverRoutine());
+            else StartCoroutine(DownAndRespawnRoutine());
         }
 
         private void Awake()
         {
             if (gameManager == null) Debug.LogError("GameManagerがアタッチされていません。");
+            if (animator == null) Debug.LogError("Animatorがアタッチされていません。");
+            if (downClip == null || respawnClip == null) Debug.LogError("撃墜/復活のAnimationClipがアタッチされていません。");
+            if (spriteRenderer == null) Debug.LogError("SpriteRendererがアタッチされていません。");
             InitInputActions();
             currentHealth = maxHealth;
+            respawnPosition = transform.position;
             OnBombPressed += Bomb;
             GameOverEvent += StopGame;
         }
@@ -66,12 +100,9 @@ namespace GamePlay
         private void Update()
         {
             InputUpdate();//入力の更新
-            if (!IsPlaying)
-            {
-                //ポーズ中・リザルト中はここで止まる(ポーズ中に弾が出続けないようにする)
-                //TODO : ゲームオーバー時の処理を追加する　入力をUI操作に切り替える。
-                return;
-            }
+            //ポーズ中・リザルト中・撃墜/復活Animation中はここで止まる
+            //FireHeldは保持されるので、復活後も押していれば撃ち始めることができる！
+            if (!IsPlaying || State != PlayerState.Alive) return;
             PlayerMove();
             CoolTimeCount();
             if (FireHeld && !isCoolTime) Fire();
@@ -79,6 +110,11 @@ namespace GamePlay
         private void InputUpdate()
         {
             Move = inputActions.Player.Move.ReadValue<Vector2>();
+            if (Move != Vector2.zero)
+            {
+                //Moveを今動かしているコントロールのデバイス
+                UpdateLastDevice(inputActions.Player.Move.activeControl?.device);
+            }
         }
 
         private void PlayerMove()
@@ -122,7 +158,7 @@ namespace GamePlay
         }
         private void Bomb()
         {
-            if (!IsPlaying || bombCount <= 0) return;//ポーズ中はボムも使えない
+            if (!IsPlaying || State != PlayerState.Alive || bombCount <= 0) return;//ポーズ中・撃墜/復活中はボムも使えない
             bombCount--;
             bombPool?.Get(transform.position);
         }
@@ -143,43 +179,85 @@ namespace GamePlay
         {
             Debug.Log("Game Over");
             OnBombPressed -= Bomb;
-            //TODO : ゲームオーバー時のAnimation等処理を追加する
+            //TODO : Text表示、リザルトシーンへの遷移(GameManager.GoToResult())を追加する
         }
 
         /// <summary>
-        /// 接続されているデバイスを確認する
+        /// 残機が残っているとき : 撃墜Animation → 復活Animation → 無敵の順に進める<br/>
+        /// WaitForSecondsはTime.timeScaleの影響を受けるので、ポーズ中は待ち時間も止まる。
         /// </summary>
-        private void CheckDevice(InputEventPtr eventPtr, InputDevice device)
+        private IEnumerator DownAndRespawnRoutine()
         {
-            if (!eventPtr.IsA<StateEvent>() && !eventPtr.IsA<DeltaStateEvent>()) return;
+            State = PlayerState.Downed;
+            PlayAnimation(DownStateName);
+            if (downClip != null) yield return new WaitForSeconds(downClip.length);
 
+            transform.position = respawnPosition;
+            State = PlayerState.Respawning;
+            PlayAnimation(RespawnStateName);
+            if (respawnClip != null) yield return new WaitForSeconds(respawnClip.length);
+
+            PlayAnimation(IdleStateName);
+            State = PlayerState.Alive;
+            StartCoroutine(InvincibleRoutine());
+        }
+
+        /// <summary>
+        /// 残機が0のとき : 撃墜Animationを最後まで流してからGameOverEventを呼ぶ
+        /// </summary>
+        private IEnumerator GameOverRoutine()
+        {
+            State = PlayerState.Downed;
+            PlayAnimation(DownStateName);
+            if (downClip != null) yield return new WaitForSeconds(downClip.length);
+
+            State = PlayerState.GameOver;
+            GameOverEvent?.Invoke();
+        }
+
+        /// <summary>
+        /// 復活直後の無敵<br/>
+        /// 復活Animationとは別で、spriteRendererを点滅させながらinvincibleDuration秒間ダメージを受けない。
+        /// </summary>
+        private IEnumerator InvincibleRoutine()
+        {
+            isInvincible = true;
+            float timer = 0f;
+            while (timer < invincibleDuration)
+            {
+                if (spriteRenderer != null) spriteRenderer.enabled = !spriteRenderer.enabled;
+                yield return new WaitForSeconds(blinkInterval);
+                timer += blinkInterval;
+            }
+            if (spriteRenderer != null) spriteRenderer.enabled = true;//点滅の途中で終わっても必ず表示に戻す
+            isInvincible = false;
+        }
+
+        private void PlayAnimation(string stateName)
+        {
+            if (animator != null) animator.Play(stateName);
+        }
+
+        /// <summary>
+        /// 最後にボタンを押したデバイスを記録する<br/>
+        /// マウスのクリックもキーボードのキーもボタンなので、どちらもKeyboard扱いにしている。
+        /// </summary>
+        private void OnAnyButtonPressed(InputControl control) => UpdateLastDevice(control.device);
+
+        /// <summary>
+        /// 最後に使われたデバイスを更新する<br/>
+        /// OnAnyButtonPressedと、Moveの入力の両方から呼ばれる。
+        /// </summary>
+        private void UpdateLastDevice(InputDevice device)
+        {
             Device next;
             if (device is Gamepad) next = Device.Gamepad;
             else if (device is Keyboard || device is Mouse) next = Device.Keyboard;
-            else return;
+            else return;//nullもここで弾かれる
 
             if (next == LastDevice) return;
-
-            if (next == Device.Gamepad)
-            {
-                Debug.Log("Gamepadが接続されました。");
-                LastDevice = Device.Gamepad;
-            }
-            else if (next == Device.Keyboard || CheckMouseClick())
-            {
-                Debug.Log("Keyboardが接続されました。");
-                LastDevice = Device.Keyboard;
-            }
-        }
-        private bool CheckMouseClick()
-        {
-
-            if (Mouse.current.leftButton.isPressed)
-            {
-                Debug.Log("マウスが左クリックされました。");
-                return true;
-            }
-            return false;
+            LastDevice = next;
+            Debug.Log($"{next}が最後に使われたデバイスになりました。");
         }
         private void InitInputActions()
         {
@@ -193,13 +271,14 @@ namespace GamePlay
         private void OnEnable()
         {
             inputActions.Enable();
-            InputSystem.onEvent += CheckDevice;
+            //最後にボタンを押したデバイスを記録する拡張メソッド、Call()を使うと、
+            //InputSystem.onAnyButtonPressに登録したActionが呼ばれるようになる。(Google調べ)
+            anyButtonSubscription = InputSystem.onAnyButtonPress.Call(OnAnyButtonPressed);
         }
         private void OnDisable()
         {
             inputActions.Disable();
-            InputSystem.onEvent -= CheckDevice;
-
+            anyButtonSubscription?.Dispose();
         }
         private void OnDestroy()
         {

@@ -13,6 +13,10 @@ namespace GamePlay
         [SerializeField] private Collider2D bossCollider;
         [Tooltip("Bossの最大体力")]
         [SerializeField] private int maxHealth = 100;
+        [Tooltip("Bossの第二段階目に移る体力の割合(%)")]
+        [SerializeField] private int secondPhaseHealth = 30;
+        [Tooltip("Bossの第三段階目に移る体力の割合(%)")]
+        [SerializeField] private int thirdPhaseHealth = 70;
         [Tooltip("Playerに接触したときに与えるダメージ")]
         [SerializeField] private int contactDamage = 1;
 
@@ -29,6 +33,11 @@ namespace GamePlay
         [SerializeField] private BulletPool bulletPool;
         [Tooltip("狙う対象(Player)")]
         [SerializeField] private Transform target;
+
+        [Header("弾幕の種類ごとの弾のSprite")]
+        [SerializeField] private Sprite linearSprite;
+        [SerializeField] private Sprite fanSprite;
+        [SerializeField] private Sprite homingSprite;
 
         [Header("発射インターバル(秒)")]
         [SerializeField] private float linearInterval = 5f;
@@ -52,6 +61,7 @@ namespace GamePlay
         private float fanTimer;
         private float homingTimer;
         private bool isFanOdd = true;//扇形は奇数個と偶数個を交互に撃つ
+        private Player targetPlayer;//targetのPlayer(撃墜・復活中かを見るため)
 
         /// <summary>
         /// ゲームが進行中か(GameManagerがPlayingのときだけtrue)<br/>
@@ -72,6 +82,7 @@ namespace GamePlay
             if (gameManager == null) Debug.LogError("GameManagerがアタッチされていません。");
             if (bulletPool == null) Debug.LogError("BulletPoolがアタッチされていません。");
             if (target == null) Debug.LogError("狙う対象(Player)がアタッチされていません。");
+            else target.TryGetComponent(out targetPlayer);
             if (bossCollider == null)
             {
                 Debug.LogError("Collider2Dがアタッチされていません。");
@@ -91,6 +102,8 @@ namespace GamePlay
         {
             if (!IsPlaying) return;
             MoveVertical();
+            //Playerの撃墜・復活Animation中は弾を撃たない(タイマーも進めないので、復活後に溜まった分が一斉に出ることもない)
+            if (targetPlayer != null && targetPlayer.State != PlayerState.Alive) return;
             FireUpdate();
         }
 
@@ -138,7 +151,7 @@ namespace GamePlay
         //初期状態 : Playerに向かって一直線
         private void FireLinear()
         {
-            BossBullet bullet = SpawnBullet();
+            BossBullet bullet = SpawnBullet(linearSprite);
             bullet?.Launch(DirectionToTarget());
         }
 
@@ -153,7 +166,7 @@ namespace GamePlay
                 // 1発のときは正面のみ。2発以上は扇の端から端まで等間隔に並べる
                 float angle = count == 1 ? 0f : -fanAngle / 2f + fanAngle / (count - 1) * i;
                 Vector2 dir = Quaternion.Euler(0f, 0f, angle) * Vector2.left;
-                BossBullet bullet = SpawnBullet();
+                BossBullet bullet = SpawnBullet(fanSprite);
                 bullet?.Launch(dir);
             }
         }
@@ -161,13 +174,19 @@ namespace GamePlay
         //2段階目 : Playerに向かうホーミング弾
         private void FireHoming()
         {
-            BossBullet bullet = SpawnBullet();
+            BossBullet bullet = SpawnBullet(homingSprite);
             bullet?.LaunchHoming(DirectionToTarget(), target);
         }
 
-        private BossBullet SpawnBullet()
+        /// <summary>
+        /// 弾をプールから取り出して、弾幕の種類に合わせたSpriteにする<br/>
+        /// spriteがnullのときは、弾のSpriteを変更しない。
+        /// </summary>
+        private BossBullet SpawnBullet(Sprite sprite)
         {
-            return bulletPool?.Get(transform.position) as BossBullet;
+            BossBullet bullet = bulletPool?.Get(transform.position) as BossBullet;
+            bullet?.SetSprite(sprite);
+            return bullet;
         }
 
         private Vector2 DirectionToTarget()
@@ -181,17 +200,22 @@ namespace GamePlay
         /// </summary>
         private void UpdateState()
         {
-            float ratio = (float)currentHealth / maxHealth;
+            float ratio = ((float)currentHealth / maxHealth) * 100;//百分率にする
             BossState next = State;
-            if (ratio <= 1f / 3f) next = BossState.HomingPhase;
-            else if (ratio <= 2f / 3f) next = BossState.FanShapePhase;
+            if (ratio <= thirdPhaseHealth) next = BossState.HomingPhase;//三段階目 : Playerに向かうホーミング弾
+            else if (ratio <= secondPhaseHealth) next = BossState.FanShapePhase;//二段階目 : 前方(左)に奇数個・偶数個を交互に扇形で撃つ
+            else next = BossState.LinearPhase;//初期状態 : Playerに向かって一直線
 
             if (next == State) return;
             State = next;
             Debug.Log($"Bossが{State}に移行しました。");
         }
 
-        private void OnTriggerEnter2D(Collider2D other)
+        /// <summary>
+        /// 重なっている間は毎フレーム呼ばれる<br/>
+        /// 無敵が切れた時点で重なっていたらダメージを受ける仕様のため、Enterではなくこちらを使う。
+        /// </summary>
+        private void OnTriggerStay2D(Collider2D other)
         {
             if (!IsPlaying) return;
             if (other.TryGetComponent<Player>(out var player))
