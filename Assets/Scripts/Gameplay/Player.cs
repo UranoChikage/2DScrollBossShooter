@@ -44,6 +44,12 @@ namespace GamePlay
         [SerializeField] private float invincibleDuration = 2f;
         [Tooltip("点滅の切り替え間隔(秒)")]
         [SerializeField] private float blinkInterval = 0.1f;
+
+        [Header("点滅の色(通常の色との間で切り替える)")]
+        [Tooltip("被弾して撃墜Animationが流れている間の点滅の色")]
+        [SerializeField] private Color hitBlinkColor = Color.red;
+        [Tooltip("復活後の無敵中の点滅の色(半透明にすると消えかけて見える)")]
+        [SerializeField] private Color invincibleBlinkColor = new Color(1f, 1f, 1f, 0.3f);
         public event Action GameOverEvent;
 
         /// <summary>撃墜・復活の状態。Bossが発射を止めるときにも参照する。</summary>
@@ -55,7 +61,7 @@ namespace GamePlay
         private const string RespawnStateName = "PlayerRespawn";
 
         private int currentHealth;
-        private Vector3 respawnPosition;//復活する位置
+        private Color baseColor = Color.white;//点滅から戻す元の色
         private bool isInvincible;
         private float currentCoolTime = 0f;
         private bool isCoolTime;
@@ -90,9 +96,9 @@ namespace GamePlay
             if (animator == null) Debug.LogError("Animatorがアタッチされていません。");
             if (downClip == null || respawnClip == null) Debug.LogError("撃墜/復活のAnimationClipがアタッチされていません。");
             if (spriteRenderer == null) Debug.LogError("SpriteRendererがアタッチされていません。");
+            else baseColor = spriteRenderer.color;
             InitInputActions();
             currentHealth = maxHealth;
-            respawnPosition = transform.position;
             OnBombPressed += Bomb;
             GameOverEvent += StopGame;
         }
@@ -190,9 +196,13 @@ namespace GamePlay
         {
             State = PlayerState.Downed;
             PlayAnimation(DownStateName);
-            if (downClip != null) yield return new WaitForSeconds(downClip.length);
+            if (downClip != null)
+            {
+                StartCoroutine(BlinkRoutine(hitBlinkColor, downClip.length));//撃墜Animationと同時に点滅
+                yield return new WaitForSeconds(downClip.length);
+            }
 
-            transform.position = respawnPosition;
+            //撃墜された位置から復活する(位置は動かさない)
             State = PlayerState.Respawning;
             PlayAnimation(RespawnStateName);
             if (respawnClip != null) yield return new WaitForSeconds(respawnClip.length);
@@ -209,7 +219,11 @@ namespace GamePlay
         {
             State = PlayerState.Downed;
             PlayAnimation(DownStateName);
-            if (downClip != null) yield return new WaitForSeconds(downClip.length);
+            if (downClip != null)
+            {
+                StartCoroutine(BlinkRoutine(hitBlinkColor, downClip.length));
+                yield return new WaitForSeconds(downClip.length);
+            }
 
             State = PlayerState.GameOver;
             GameOverEvent?.Invoke();
@@ -217,20 +231,33 @@ namespace GamePlay
 
         /// <summary>
         /// 復活直後の無敵<br/>
-        /// 復活Animationとは別で、spriteRendererを点滅させながらinvincibleDuration秒間ダメージを受けない。
+        /// 復活Animationとは別で、点滅させながらinvincibleDuration秒間ダメージを受けない。
         /// </summary>
         private IEnumerator InvincibleRoutine()
         {
             isInvincible = true;
+            yield return BlinkRoutine(invincibleBlinkColor, invincibleDuration);//点滅が終わるまで待つ
+            isInvincible = false;
+        }
+
+        /// <summary>
+        /// 通常の色と指定した色をblinkInterval秒ごとに切り替えて、duration秒間点滅させる<br/>
+        /// 終わったら必ず通常の色に戻す。
+        /// </summary>
+        private IEnumerator BlinkRoutine(Color blinkColor, float duration)
+        {
+            if (spriteRenderer == null) yield break;
+
+            bool isBlinkColor = false;
             float timer = 0f;
-            while (timer < invincibleDuration)
+            while (timer < duration)
             {
-                if (spriteRenderer != null) spriteRenderer.enabled = !spriteRenderer.enabled;
+                isBlinkColor = !isBlinkColor;
+                spriteRenderer.color = isBlinkColor ? blinkColor : baseColor;
                 yield return new WaitForSeconds(blinkInterval);
                 timer += blinkInterval;
             }
-            if (spriteRenderer != null) spriteRenderer.enabled = true;//点滅の途中で終わっても必ず表示に戻す
-            isInvincible = false;
+            spriteRenderer.color = baseColor;
         }
 
         private void PlayAnimation(string stateName)

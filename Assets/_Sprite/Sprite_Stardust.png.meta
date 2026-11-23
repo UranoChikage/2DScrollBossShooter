@@ -1,0 +1,5135 @@
+fileFormatVersion: 2
+guid: dbf36ce835ff2e540b143e4dcbcdd2b6
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -4205235008707250773
+    second: Sprite_Stardust_0
+  - first:
+      213: 4952898374098126501
+    second: Sprite_Stardust_1
+  - first:
+      213: 1339108920839831131
+    second: Sprite_Stardust_2
+  - first:
+      213: 4718135831859524880
+    second: Sprite_Stardust_3
+  - first:
+      213: -7685823362256861119
+    second: Sprite_Stardust_4
+  - first:
+      213: -5869127520150883572
+    second: Sprite_Stardust_5
+  - first:
+      213: 3917101573142954415
+    second: Sprite_Stardust_6
+  - first:
+      213: -4732045242630080097
+    second: Sprite_Stardust_7
+  - first:
+      213: 1951288299354061468
+    second: Sprite_Stardust_8
+  - first:
+      213: -5740176253908748946
+    second: Sprite_Stardust_9
+  - first:
+      213: -6767232749253913395
+    second: Sprite_Stardust_10
+  - first:
+      213: 1520617199004963608
+    second: Sprite_Stardust_11
+  - first:
+      213: 2802115905181265153
+    second: Sprite_Stardust_12
+  - first:
+      213: 393528109217888332
+    second: Sprite_Stardust_13
+  - first:
+      213: -9186622903926815414
+    second: Sprite_Stardust_14
+  - first:
+      213: 7703867633851271439
+    second: Sprite_Stardust_15
+  - first:
+      213: 5593606969801678617
+    second: Sprite_Stardust_16
+  - first:
+      213: 5740107744234117841
+    second: Sprite_Stardust_17
+  - first:
+      213: -6785585040040615266
+    second: Sprite_Stardust_18
+  - first:
+      213: -7931526764816986865
+    second: Sprite_Stardust_19
+  - first:
+      213: -8243549718759386781
+    second: Sprite_Stardust_20
+  - first:
+      213: 1403048346330944784
+    second: Sprite_Stardust_21
+  - first:
+      213: 8765183834735098010
+    second: Sprite_Stardust_22
+  - first:
+      213: -7689438706640749734
+    second: Sprite_Stardust_23
+  - first:
+      213: -3464903711770694794
+    second: Sprite_Stardust_24
+  - first:
+      213: 5373503613996001872
+    second: Sprite_Stardust_25
+  - first:
+      213: 4771916257614912694
+    second: Sprite_Stardust_26
+  - first:
+      213: -1118798343654473212
+    second: Sprite_Stardust_27
+  - first:
+      213: 5545776911789609112
+    second: Sprite_Stardust_28
+  - first:
+      213: -2061594934800937568
+    second: Sprite_Stardust_29
+  - first:
+      213: 1529300884242531162
+    second: Sprite_Stardust_30
+  - first:
+      213: -3030083513482230237
+    second: Sprite_Stardust_31
+  - first:
+      213: 8678568024707473972
+    second: Sprite_Stardust_32
+  - first:
+      213: -1350862892398259165
+    second: Sprite_Stardust_33
+  - first:
+      213: -4315628335439747916
+    second: Sprite_Stardust_34
+  - first:
+      213: 4956351364886804926
+    second: Sprite_Stardust_35
+  - first:
+      213: -448003499755441633
+    second: Sprite_Stardust_36
+  - first:
+      213: 2473172536757563413
+    second: Sprite_Stardust_37
+  - first:
+      213: -2498512448667689683
+    second: Sprite_Stardust_38
+  - first:
+      213: 4626212141437718966
+    second: Sprite_Stardust_39
+  - first:
+      213: -3050138598204278198
+    second: Sprite_Stardust_40
+  - first:
+      213: 7087936375129041218
+    second: Sprite_Stardust_41
+  - first:
+      213: -8561881410361665241
+    second: Sprite_Stardust_42
+  - first:
+      213: -7052323354393579258
+    second: Sprite_Stardust_43
+  - first:
+      213: 8971566699641425017
+    second: Sprite_Stardust_44
+  - first:
+      213: -5288995253431011465
+    second: Sprite_Stardust_45
+  - first:
+      213: 2293078114457560494
+    second: Sprite_Stardust_46
+  - first:
+      213: -952990745238867013
+    second: Sprite_Stardust_47
+  - first:
+      213: -8010045368859560558
+    second: Sprite_Stardust_48
+  - first:
+      213: -4293307927468062737
+    second: Sprite_Stardust_49
+  - first:
+      213: -4381552581244695981
+    second: Sprite_Stardust_50
+  - first:
+      213: -3240200350694671264
+    second: Sprite_Stardust_51
+  - first:
+      213: -8849050548295009549
+    second: Sprite_Stardust_52
+  - first:
+      213: -442286703560011303
+    second: Sprite_Stardust_53
+  - first:
+      213: -853554672434468991
+    second: Sprite_Stardust_54
+  - first:
+      213: -6310784012402462316
+    second: Sprite_Stardust_55
+  - first:
+      213: 3895018457642039153
+    second: Sprite_Stardust_56
+  - first:
+      213: 4792177783277133693
+    second: Sprite_Stardust_57
+  - first:
+      213: -1790230065192157476
+    second: Sprite_Stardust_58
+  - first:
+      213: 148013901456162357
+    second: Sprite_Stardust_59
+  - first:
+      213: -8240255573249056492
+    second: Sprite_Stardust_60
+  - first:
+      213: -4468521769962698300
+    second: Sprite_Stardust_61
+  - first:
+      213: 3518099411046200352
+    second: Sprite_Stardust_62
+  - first:
+      213: -774562097232453350
+    second: Sprite_Stardust_63
+  - first:
+      213: -2027363077353307979
+    second: Sprite_Stardust_64
+  - first:
+      213: 2998639551498367436
+    second: Sprite_Stardust_65
+  - first:
+      213: 6578807076563598335
+    second: Sprite_Stardust_66
+  - first:
+      213: -4261426515845830917
+    second: Sprite_Stardust_67
+  - first:
+      213: -7997620174090542209
+    second: Sprite_Stardust_68
+  - first:
+      213: -3883758366972573954
+    second: Sprite_Stardust_69
+  - first:
+      213: -4497046781656063710
+    second: Sprite_Stardust_70
+  - first:
+      213: -3967368334737427559
+    second: Sprite_Stardust_71
+  - first:
+      213: 755448358151708598
+    second: Sprite_Stardust_72
+  - first:
+      213: -8975301321586195397
+    second: Sprite_Stardust_73
+  - first:
+      213: 3851849140590612143
+    second: Sprite_Stardust_74
+  - first:
+      213: 5145324927367576698
+    second: Sprite_Stardust_75
+  - first:
+      213: 7544173418626615332
+    second: Sprite_Stardust_76
+  - first:
+      213: -1250259596676751570
+    second: Sprite_Stardust_77
+  - first:
+      213: -3342365462222464259
+    second: Sprite_Stardust_78
+  - first:
+      213: -1910137866541953459
+    second: Sprite_Stardust_79
+  - first:
+      213: -1020451160228048822
+    second: Sprite_Stardust_80
+  - first:
+      213: -822150515921677890
+    second: Sprite_Stardust_81
+  - first:
+      213: -2238764660162275715
+    second: Sprite_Stardust_82
+  - first:
+      213: -5931450283711435522
+    second: Sprite_Stardust_83
+  - first:
+      213: 1669217280631701332
+    second: Sprite_Stardust_84
+  - first:
+      213: -7175250983223224211
+    second: Sprite_Stardust_85
+  - first:
+      213: 3636215482296403649
+    second: Sprite_Stardust_86
+  - first:
+      213: 6886495895386399732
+    second: Sprite_Stardust_87
+  - first:
+      213: 7704771776316892366
+    second: Sprite_Stardust_88
+  - first:
+      213: -1595421666487335268
+    second: Sprite_Stardust_89
+  - first:
+      213: -2325743684878210626
+    second: Sprite_Stardust_90
+  - first:
+      213: 5041502552204648144
+    second: Sprite_Stardust_91
+  - first:
+      213: -2198685275666643686
+    second: Sprite_Stardust_92
+  - first:
+      213: -8916921132304881425
+    second: Sprite_Stardust_93
+  - first:
+      213: 2798383885506006510
+    second: Sprite_Stardust_94
+  - first:
+      213: 5833347462546344745
+    second: Sprite_Stardust_95
+  - first:
+      213: -58901047954326220
+    second: Sprite_Stardust_96
+  - first:
+      213: -2719167647841126624
+    second: Sprite_Stardust_97
+  - first:
+      213: 2309309786351542130
+    second: Sprite_Stardust_98
+  - first:
+      213: -3316840020083457919
+    second: Sprite_Stardust_99
+  - first:
+      213: 5117691071098821037
+    second: Sprite_Stardust_100
+  - first:
+      213: 5820628056309359205
+    second: Sprite_Stardust_101
+  - first:
+      213: -1576939384218142701
+    second: Sprite_Stardust_102
+  - first:
+      213: 892743836875868655
+    second: Sprite_Stardust_103
+  - first:
+      213: -1361677686419071827
+    second: Sprite_Stardust_104
+  - first:
+      213: -5648008066179260591
+    second: Sprite_Stardust_105
+  - first:
+      213: -8422672148840285587
+    second: Sprite_Stardust_106
+  - first:
+      213: -2466095818310658025
+    second: Sprite_Stardust_107
+  - first:
+      213: 2585808486235223371
+    second: Sprite_Stardust_108
+  - first:
+      213: -6671558732476154276
+    second: Sprite_Stardust_109
+  - first:
+      213: 52863710766688038
+    second: Sprite_Stardust_110
+  - first:
+      213: -7095686786410349249
+    second: Sprite_Stardust_111
+  - first:
+      213: -1457148627689737812
+    second: Sprite_Stardust_112
+  - first:
+      213: -6556930174749827616
+    second: Sprite_Stardust_113
+  - first:
+      213: -230940130966350973
+    second: Sprite_Stardust_114
+  - first:
+      213: 4108697077275044431
+    second: Sprite_Stardust_115
+  - first:
+      213: -4567670350467008348
+    second: Sprite_Stardust_116
+  - first:
+      213: -1411423216884015573
+    second: Sprite_Stardust_117
+  - first:
+      213: -3301559631207962666
+    second: Sprite_Stardust_118
+  - first:
+      213: -805599919644608779
+    second: Sprite_Stardust_119
+  - first:
+      213: 5716475078537325038
+    second: Sprite_Stardust_120
+  - first:
+      213: -4949524729921038331
+    second: Sprite_Stardust_121
+  - first:
+      213: 8759674418981871249
+    second: Sprite_Stardust_122
+  - first:
+      213: 7350544478293249516
+    second: Sprite_Stardust_123
+  - first:
+      213: -6539716839625817096
+    second: Sprite_Stardust_124
+  - first:
+      213: 933696349316059953
+    second: Sprite_Stardust_125
+  - first:
+      213: -7896038467181886591
+    second: Sprite_Stardust_126
+  - first:
+      213: 4829595481863459048
+    second: Sprite_Stardust_127
+  - first:
+      213: -1615785886752535088
+    second: Sprite_Stardust_128
+  - first:
+      213: -6766802281315048425
+    second: Sprite_Stardust_129
+  - first:
+      213: 1569807790980259532
+    second: Sprite_Stardust_130
+  - first:
+      213: 7133914485059901624
+    second: Sprite_Stardust_131
+  - first:
+      213: -6576199571628504694
+    second: Sprite_Stardust_132
+  - first:
+      213: -4022249801804523988
+    second: Sprite_Stardust_133
+  - first:
+      213: -3557381202765355937
+    second: Sprite_Stardust_134
+  - first:
+      213: -7930222481381387143
+    second: Sprite_Stardust_135
+  - first:
+      213: -4144615259920154508
+    second: Sprite_Stardust_136
+  - first:
+      213: -2313399508042243080
+    second: Sprite_Stardust_137
+  - first:
+      213: 5455140983249825087
+    second: Sprite_Stardust_138
+  - first:
+      213: -3850185274481431811
+    second: Sprite_Stardust_139
+  - first:
+      213: -341596084596037618
+    second: Sprite_Stardust_140
+  - first:
+      213: 5828142179667136990
+    second: Sprite_Stardust_141
+  - first:
+      213: 5734503409202976183
+    second: Sprite_Stardust_142
+  - first:
+      213: -6540006100235326927
+    second: Sprite_Stardust_143
+  - first:
+      213: -5112768386987618505
+    second: Sprite_Stardust_144
+  - first:
+      213: -5051196192874979782
+    second: Sprite_Stardust_145
+  - first:
+      213: -8536743893099800299
+    second: Sprite_Stardust_146
+  - first:
+      213: -8469603654615195405
+    second: Sprite_Stardust_147
+  - first:
+      213: 1782208887129343498
+    second: Sprite_Stardust_148
+  - first:
+      213: -9037047667839971193
+    second: Sprite_Stardust_149
+  - first:
+      213: -8202412557226047663
+    second: Sprite_Stardust_150
+  - first:
+      213: -2937046118704013695
+    second: Sprite_Stardust_151
+  - first:
+      213: 9192737264769012013
+    second: Sprite_Stardust_152
+  - first:
+      213: 800084451785653244
+    second: Sprite_Stardust_153
+  - first:
+      213: 6818909715624178203
+    second: Sprite_Stardust_154
+  - first:
+      213: -1155463874305751861
+    second: Sprite_Stardust_155
+  - first:
+      213: 5887747548867310437
+    second: Sprite_Stardust_156
+  - first:
+      213: 2658479645221387749
+    second: Sprite_Stardust_157
+  - first:
+      213: -6044991726891161531
+    second: Sprite_Stardust_158
+  - first:
+      213: 1095050646074753763
+    second: Sprite_Stardust_159
+  - first:
+      213: -4666977501813064730
+    second: Sprite_Stardust_160
+  - first:
+      213: 6806824117341956218
+    second: Sprite_Stardust_161
+  - first:
+      213: 2503916281471940706
+    second: Sprite_Stardust_162
+  - first:
+      213: -5816060462646938810
+    second: Sprite_Stardust_163
+  - first:
+      213: 2127418843467624560
+    second: Sprite_Stardust_164
+  - first:
+      213: -4146368432857534412
+    second: Sprite_Stardust_165
+  - first:
+      213: -5604127265766210900
+    second: Sprite_Stardust_166
+  - first:
+      213: -613607556424581615
+    second: Sprite_Stardust_167
+  - first:
+      213: -5292038143935009732
+    second: Sprite_Stardust_168
+  - first:
+      213: -5512694472509189294
+    second: Sprite_Stardust_169
+  - first:
+      213: 3236432984771498515
+    second: Sprite_Stardust_170
+  - first:
+      213: 7145692272295341234
+    second: Sprite_Stardust_171
+  - first:
+      213: 8292385706649238494
+    second: Sprite_Stardust_172
+  - first:
+      213: -4134538344983846925
+    second: Sprite_Stardust_173
+  - first:
+      213: 7130928932384266436
+    second: Sprite_Stardust_174
+  - first:
+      213: 21612669620694210
+    second: Sprite_Stardust_175
+  - first:
+      213: -4655798436330447808
+    second: Sprite_Stardust_176
+  - first:
+      213: 438697768691301746
+    second: Sprite_Stardust_177
+  - first:
+      213: -6945093061354035454
+    second: Sprite_Stardust_178
+  - first:
+      213: 523971917850002322
+    second: Sprite_Stardust_179
+  - first:
+      213: -3487851571729783535
+    second: Sprite_Stardust_180
+  - first:
+      213: 1802289734521799430
+    second: Sprite_Stardust_181
+  - first:
+      213: 1110874644164898962
+    second: Sprite_Stardust_182
+  - first:
+      213: 1243655045393502867
+    second: Sprite_Stardust_183
+  - first:
+      213: -2478176209812200029
+    second: Sprite_Stardust_184
+  - first:
+      213: 351363058953281130
+    second: Sprite_Stardust_185
+  - first:
+      213: 1736525398227529224
+    second: Sprite_Stardust_186
+  - first:
+      213: -5427208628544084906
+    second: Sprite_Stardust_187
+  - first:
+      213: 7161478528677841626
+    second: Sprite_Stardust_188
+  - first:
+      213: -1519340654535825121
+    second: Sprite_Stardust_189
+  - first:
+      213: -2587937600375060544
+    second: Sprite_Stardust_190
+  - first:
+      213: -7211267590543028831
+    second: Sprite_Stardust_191
+  - first:
+      213: -6086160064146306790
+    second: Sprite_Stardust_192
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 0
+    wrapV: 0
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 1000
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Sprite_Stardust_0
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 480
+        width: 61
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ba5b7f43a0104a5c0800000000000000
+      internalID: -4205235008707250773
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_1
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 450
+        width: 48
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a68ab464da3cb440800000000000000
+      internalID: 4952898374098126501
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_2
+      rect:
+        serializedVersion: 2
+        x: 377
+        y: 496
+        width: 21
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b5ef636f778759210800000000000000
+      internalID: 1339108920839831131
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_3
+      rect:
+        serializedVersion: 2
+        x: 401
+        y: 497
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 01577049a8f2a7140800000000000000
+      internalID: 4718135831859524880
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_4
+      rect:
+        serializedVersion: 2
+        x: 404
+        y: 506
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 148084e8f58765590800000000000000
+      internalID: -7685823362256861119
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_5
+      rect:
+        serializedVersion: 2
+        x: 481
+        y: 471
+        width: 25
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c03ffebcd9bac8ea0800000000000000
+      internalID: -5869127520150883572
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_6
+      rect:
+        serializedVersion: 2
+        x: 140
+        y: 448
+        width: 47
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fa14f4880275c5630800000000000000
+      internalID: 3917101573142954415
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_7
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 0
+        width: 271
+        height: 504
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f99f4fb5ce5645eb0800000000000000
+      internalID: -4732045242630080097
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_8
+      rect:
+        serializedVersion: 2
+        x: 396
+        y: 480
+        width: 8
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c9aff51be5e541b10800000000000000
+      internalID: 1951288299354061468
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_9
+      rect:
+        serializedVersion: 2
+        x: 421
+        y: 478
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e65f2ad1c1cc650b0800000000000000
+      internalID: -5740176253908748946
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_10
+      rect:
+        serializedVersion: 2
+        x: 452
+        y: 473
+        width: 9
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc4945c3ba5f512a0800000000000000
+      internalID: -6767232749253913395
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_11
+      rect:
+        serializedVersion: 2
+        x: 383
+        y: 465
+        width: 16
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8135a0239415a1510800000000000000
+      internalID: 1520617199004963608
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_12
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 398
+        width: 34
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 10d2dcbc19d13e620800000000000000
+      internalID: 2802115905181265153
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_13
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 440
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c483017fab7167500800000000000000
+      internalID: 393528109217888332
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_14
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 414
+        width: 22
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a4589f5442f828080800000000000000
+      internalID: -9186622903926815414
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_15
+      rect:
+        serializedVersion: 2
+        x: 173
+        y: 445
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f098550dbc2a9ea60800000000000000
+      internalID: 7703867633851271439
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_16
+      rect:
+        serializedVersion: 2
+        x: 331
+        y: 451
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 91f9d2027eb70ad40800000000000000
+      internalID: 5593606969801678617
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_17
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 444
+        width: 10
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1da1b8bb495f8af40800000000000000
+      internalID: 5740107744234117841
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_18
+      rect:
+        serializedVersion: 2
+        x: 407
+        y: 395
+        width: 44
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e92ac2f8b52c4d1a0800000000000000
+      internalID: -6785585040040615266
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_19
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 455
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f0d84903e6e8de190800000000000000
+      internalID: -7931526764816986865
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_20
+      rect:
+        serializedVersion: 2
+        x: 466
+        y: 404
+        width: 46
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 361531df437099d80800000000000000
+      internalID: -8243549718759386781
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_21
+      rect:
+        serializedVersion: 2
+        x: 470
+        y: 441
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 01551cd8901a87310800000000000000
+      internalID: 1403048346330944784
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_22
+      rect:
+        serializedVersion: 2
+        x: 122
+        y: 387
+        width: 33
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a98b16cf14034a970800000000000000
+      internalID: 8765183834735098010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_23
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 432
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a5bf9889c30a94590800000000000000
+      internalID: -7689438706640749734
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_24
+      rect:
+        serializedVersion: 2
+        x: 275
+        y: 416
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 67ba9f69e603aefc0800000000000000
+      internalID: -3464903711770694794
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_25
+      rect:
+        serializedVersion: 2
+        x: 285
+        y: 421
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 05a628f1115829a40800000000000000
+      internalID: 5373503613996001872
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_26
+      rect:
+        serializedVersion: 2
+        x: 476
+        y: 421
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6bc5c09bd80493240800000000000000
+      internalID: 4771916257614912694
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_27
+      rect:
+        serializedVersion: 2
+        x: 443
+        y: 411
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4020e2785da3970f0800000000000000
+      internalID: -1118798343654473212
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_28
+      rect:
+        serializedVersion: 2
+        x: 462
+        y: 408
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 89058cee7be86fc40800000000000000
+      internalID: 5545776911789609112
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_29
+      rect:
+        serializedVersion: 2
+        x: 498
+        y: 404
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0ad0270645eb363e0800000000000000
+      internalID: -2061594934800937568
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_30
+      rect:
+        serializedVersion: 2
+        x: 354
+        y: 404
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a5387f73d0b293510800000000000000
+      internalID: 1529300884242531162
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_31
+      rect:
+        serializedVersion: 2
+        x: 363
+        y: 400
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 326cf1b391bf2f5d0800000000000000
+      internalID: -3030083513482230237
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_32
+      rect:
+        serializedVersion: 2
+        x: 374
+        y: 403
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 432a0cf23a7707870800000000000000
+      internalID: 8678568024707473972
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_33
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 395
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 32458564b55c04de0800000000000000
+      internalID: -1350862892398259165
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_34
+      rect:
+        serializedVersion: 2
+        x: 242
+        y: 387
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4b4e083e4eecb14c0800000000000000
+      internalID: -4315628335439747916
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_35
+      rect:
+        serializedVersion: 2
+        x: 393
+        y: 392
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eb9b9167e4f78c440800000000000000
+      internalID: 4956351364886804926
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_36
+      rect:
+        serializedVersion: 2
+        x: 449
+        y: 395
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f12f1fac03f58c9f0800000000000000
+      internalID: -448003499755441633
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_37
+      rect:
+        serializedVersion: 2
+        x: 472
+        y: 384
+        width: 16
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 510bfa99159725220800000000000000
+      internalID: 2473172536757563413
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_38
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 379
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d2d55466a20835dd0800000000000000
+      internalID: -2498512448667689683
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_39
+      rect:
+        serializedVersion: 2
+        x: 247
+        y: 380
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6b19ef19e6b933040800000000000000
+      internalID: 4626212141437718966
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_40
+      rect:
+        serializedVersion: 2
+        x: 445
+        y: 383
+        width: 14
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a4a7352fa1bbba5d0800000000000000
+      internalID: -3050138598204278198
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_41
+      rect:
+        serializedVersion: 2
+        x: 461
+        y: 371
+        width: 16
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 249e22664986d5260800000000000000
+      internalID: 7087936375129041218
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_42
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 371
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7295f5658361e2980800000000000000
+      internalID: -8561881410361665241
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_43
+      rect:
+        serializedVersion: 2
+        x: 268
+        y: 372
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 601fd24264d112e90800000000000000
+      internalID: -7052323354393579258
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_44
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 375
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 97cc9d24168618c70800000000000000
+      internalID: 8971566699641425017
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_45
+      rect:
+        serializedVersion: 2
+        x: 412
+        y: 355
+        width: 7
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 777748cd6d6b996b0800000000000000
+      internalID: -5288995253431011465
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_46
+      rect:
+        serializedVersion: 2
+        x: 424
+        y: 370
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ea527765566a2df10800000000000000
+      internalID: 2293078114457560494
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_47
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 375
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bb37dc367fb46c2f0800000000000000
+      internalID: -952990745238867013
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_48
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 289
+        width: 55
+        height: 81
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 295fc521d2a96d090800000000000000
+      internalID: -8010045368859560558
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_49
+      rect:
+        serializedVersion: 2
+        x: 62
+        y: 347
+        width: 12
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fe7c5e7df2b1b64c0800000000000000
+      internalID: -4293307927468062737
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_50
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 363
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 35ac63e44299133c0800000000000000
+      internalID: -4381552581244695981
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_51
+      rect:
+        serializedVersion: 2
+        x: 397
+        y: 355
+        width: 13
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 06c7fb7c2fe7803d0800000000000000
+      internalID: -3240200350694671264
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_52
+      rect:
+        serializedVersion: 2
+        x: 428
+        y: 345
+        width: 15
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3fa766d196bd13580800000000000000
+      internalID: -8849050548295009549
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_53
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 359
+        width: 7
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9d15d61269eacd9f0800000000000000
+      internalID: -442286703560011303
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_54
+      rect:
+        serializedVersion: 2
+        x: 473
+        y: 362
+        width: 14
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1872b293c809724f0800000000000000
+      internalID: -853554672434468991
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_55
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 341
+        width: 14
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 491798e60679b68a0800000000000000
+      internalID: -6310784012402462316
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_56
+      rect:
+        serializedVersion: 2
+        x: 199
+        y: 342
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 177f75986a2ed0630800000000000000
+      internalID: 3895018457642039153
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_57
+      rect:
+        serializedVersion: 2
+        x: 243
+        y: 342
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d7f90c8cd4c318240800000000000000
+      internalID: 4792177783277133693
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_58
+      rect:
+        serializedVersion: 2
+        x: 380
+        y: 347
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cde3ff1ad33d727e0800000000000000
+      internalID: -1790230065192157476
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_59
+      rect:
+        serializedVersion: 2
+        x: 405
+        y: 334
+        width: 14
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 53e3d12fbd9dd0200800000000000000
+      internalID: 148013901456162357
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_60
+      rect:
+        serializedVersion: 2
+        x: 445
+        y: 344
+        width: 10
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 411ae02073bb4ad80800000000000000
+      internalID: -8240255573249056492
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_61
+      rect:
+        serializedVersion: 2
+        x: 483
+        y: 343
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4c9064e102f9cf1c0800000000000000
+      internalID: -4468521769962698300
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_62
+      rect:
+        serializedVersion: 2
+        x: 491
+        y: 340
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0247bef46ccc2d030800000000000000
+      internalID: 3518099411046200352
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_63
+      rect:
+        serializedVersion: 2
+        x: 233
+        y: 337
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a116af950e33045f0800000000000000
+      internalID: -774562097232453350
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_64
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 338
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5b00d97c50c5dd3e0800000000000000
+      internalID: -2027363077353307979
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_65
+      rect:
+        serializedVersion: 2
+        x: 421
+        y: 302
+        width: 31
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cc13f7cd8ce4d9920800000000000000
+      internalID: 2998639551498367436
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_66
+      rect:
+        serializedVersion: 2
+        x: 453
+        y: 338
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ffb366c1e2e9c4b50800000000000000
+      internalID: 6578807076563598335
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_67
+      rect:
+        serializedVersion: 2
+        x: 459
+        y: 331
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bf6249e692f5cd4c0800000000000000
+      internalID: -4261426515845830917
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_68
+      rect:
+        serializedVersion: 2
+        x: 470
+        y: 334
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f73e5da23deb20190800000000000000
+      internalID: -7997620174090542209
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_69
+      rect:
+        serializedVersion: 2
+        x: 499
+        y: 319
+        width: 13
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ef6062f975e1a1ac0800000000000000
+      internalID: -3883758366972573954
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_70
+      rect:
+        serializedVersion: 2
+        x: 59
+        y: 265
+        width: 45
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 221a31947c74791c0800000000000000
+      internalID: -4497046781656063710
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_71
+      rect:
+        serializedVersion: 2
+        x: 117
+        y: 303
+        width: 14
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 993b7d2058311f8c0800000000000000
+      internalID: -3967368334737427559
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_72
+      rect:
+        serializedVersion: 2
+        x: 137
+        y: 321
+        width: 14
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6bfd8c97744eb7a00800000000000000
+      internalID: 755448358151708598
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_73
+      rect:
+        serializedVersion: 2
+        x: 193
+        y: 327
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b34c2ce4003517380800000000000000
+      internalID: -8975301321586195397
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_74
+      rect:
+        serializedVersion: 2
+        x: 242
+        y: 319
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fae0c49a264847530800000000000000
+      internalID: 3851849140590612143
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_75
+      rect:
+        serializedVersion: 2
+        x: 387
+        y: 298
+        width: 25
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a7cf4b5a2cdd76740800000000000000
+      internalID: 5145324927367576698
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_76
+      rect:
+        serializedVersion: 2
+        x: 444
+        y: 326
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4280f25e0c942b860800000000000000
+      internalID: 7544173418626615332
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_77
+      rect:
+        serializedVersion: 2
+        x: 478
+        y: 326
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e2f1f0f558f26aee0800000000000000
+      internalID: -1250259596676751570
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_78
+      rect:
+        serializedVersion: 2
+        x: 369
+        y: 316
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dfa12ba12588d91d0800000000000000
+      internalID: -3342365462222464259
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_79
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 311
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d4e8eb01bb3dd75e0800000000000000
+      internalID: -1910137866541953459
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_80
+      rect:
+        serializedVersion: 2
+        x: 452
+        y: 319
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a40d8fb8311a6d1f0800000000000000
+      internalID: -1020451160228048822
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_81
+      rect:
+        serializedVersion: 2
+        x: 465
+        y: 314
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eb1959236722794f0800000000000000
+      internalID: -822150515921677890
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_82
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 280
+        width: 18
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d76545f276f4ee0e0800000000000000
+      internalID: -2238764660162275715
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_83
+      rect:
+        serializedVersion: 2
+        x: 379
+        y: 310
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: efc6d74a4614fada0800000000000000
+      internalID: -5931450283711435522
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_84
+      rect:
+        serializedVersion: 2
+        x: 412
+        y: 305
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 45ffef8d5404a2710800000000000000
+      internalID: 1669217280631701332
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_85
+      rect:
+        serializedVersion: 2
+        x: 425
+        y: 309
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d6815b23f336c6c90800000000000000
+      internalID: -7175250983223224211
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_86
+      rect:
+        serializedVersion: 2
+        x: 469
+        y: 306
+        width: 12
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1c68d0537be667230800000000000000
+      internalID: 3636215482296403649
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_87
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 293
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4f321b7d78fb19f50800000000000000
+      internalID: 6886495895386399732
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_88
+      rect:
+        serializedVersion: 2
+        x: 307
+        y: 299
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec4e2d2eb19dcea60800000000000000
+      internalID: 7704771776316892366
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_89
+      rect:
+        serializedVersion: 2
+        x: 393
+        y: 295
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c968f0e727cebd9e0800000000000000
+      internalID: -1595421666487335268
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_90
+      rect:
+        serializedVersion: 2
+        x: 412
+        y: 295
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eb9e930e07c49bfd0800000000000000
+      internalID: -2325743684878210626
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_91
+      rect:
+        serializedVersion: 2
+        x: 478
+        y: 298
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0de12663cd307f540800000000000000
+      internalID: 5041502552204648144
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_92
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 283
+        width: 12
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a1502031463bc71e0800000000000000
+      internalID: -2198685275666643686
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_93
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 286
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fe82bca597bb04480800000000000000
+      internalID: -8916921132304881425
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_94
+      rect:
+        serializedVersion: 2
+        x: 402
+        y: 279
+        width: 14
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eed43c0415bd5d620800000000000000
+      internalID: 2798383885506006510
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_95
+      rect:
+        serializedVersion: 2
+        x: 415
+        y: 286
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 92b408c5c9634f050800000000000000
+      internalID: 5833347462546344745
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_96
+      rect:
+        serializedVersion: 2
+        x: 421
+        y: 282
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 43db8c71fcdbe2ff0800000000000000
+      internalID: -58901047954326220
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_97
+      rect:
+        serializedVersion: 2
+        x: 423
+        y: 289
+        width: 18
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 027f1b95e63934ad0800000000000000
+      internalID: -2719167647841126624
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_98
+      rect:
+        serializedVersion: 2
+        x: 238
+        y: 282
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 27f11d3f3015c0020800000000000000
+      internalID: 2309309786351542130
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_99
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 279
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 180402a339738f1d0800000000000000
+      internalID: -3316840020083457919
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_100
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 264
+        width: 25
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: da9980b1ae0b50740800000000000000
+      internalID: 5117691071098821037
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_101
+      rect:
+        serializedVersion: 2
+        x: 452
+        y: 218
+        width: 35
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 562edf1d06607c050800000000000000
+      internalID: 5820628056309359205
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_102
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 270
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 318ba5b2cf59d1ae0800000000000000
+      internalID: -1576939384218142701
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_103
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 266
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fe9c7682ac9a36c00800000000000000
+      internalID: 892743836875868655
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_104
+      rect:
+        serializedVersion: 2
+        x: 254
+        y: 267
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dac5a62db595a1de0800000000000000
+      internalID: -1361677686419071827
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_105
+      rect:
+        serializedVersion: 2
+        x: 275
+        y: 273
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 15f18d6969e3e91b0800000000000000
+      internalID: -5648008066179260591
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_106
+      rect:
+        serializedVersion: 2
+        x: 284
+        y: 273
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d6a7ccc4e48ac1b80800000000000000
+      internalID: -8422672148840285587
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_107
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 259
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 718548f4beaa6cdd0800000000000000
+      internalID: -2466095818310658025
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_108
+      rect:
+        serializedVersion: 2
+        x: 193
+        y: 259
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b45bd373e13a2e320800000000000000
+      internalID: 2585808486235223371
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_109
+      rect:
+        serializedVersion: 2
+        x: 348
+        y: 246
+        width: 7
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c5e7a942eacd963a0800000000000000
+      internalID: -6671558732476154276
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_110
+      rect:
+        serializedVersion: 2
+        x: 497
+        y: 253
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 627e1cdc34fcbb000800000000000000
+      internalID: 52863710766688038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_111
+      rect:
+        serializedVersion: 2
+        x: 498
+        y: 257
+        width: 14
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f3df39a567e078d90800000000000000
+      internalID: -7095686786410349249
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_112
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 241
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ca1fa9d1b0b27cbe0800000000000000
+      internalID: -1457148627689737812
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_113
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 242
+        width: 16
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0ed1ff40fba1105a0800000000000000
+      internalID: -6556930174749827616
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_114
+      rect:
+        serializedVersion: 2
+        x: 231
+        y: 249
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3835e59ac298bccf0800000000000000
+      internalID: -230940130966350973
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_115
+      rect:
+        serializedVersion: 2
+        x: 493
+        y: 245
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f4a2aa41936050930800000000000000
+      internalID: 4108697077275044431
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_116
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 229
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4a8745d44006c90c0800000000000000
+      internalID: -4567670350467008348
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_117
+      rect:
+        serializedVersion: 2
+        x: 263
+        y: 238
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b2e93e1ff0e996ce0800000000000000
+      internalID: -1411423216884015573
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_118
+      rect:
+        serializedVersion: 2
+        x: 392
+        y: 233
+        width: 22
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6d7641102018e22d0800000000000000
+      internalID: -3301559631207962666
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_119
+      rect:
+        serializedVersion: 2
+        x: 415
+        y: 187
+        width: 35
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5f6ff7e242fe1d4f0800000000000000
+      internalID: -805599919644608779
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_120
+      rect:
+        serializedVersion: 2
+        x: 494
+        y: 221
+        width: 18
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ee92797fbcff45f40800000000000000
+      internalID: 5716475078537325038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_121
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 194
+        width: 57
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5089b0a5b71cf4bb0800000000000000
+      internalID: -4949524729921038331
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_122
+      rect:
+        serializedVersion: 2
+        x: 213
+        y: 222
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 19e9d7b297d909970800000000000000
+      internalID: 8759674418981871249
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_123
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 163
+        width: 5
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cedc0661241620660800000000000000
+      internalID: 7350544478293249516
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_124
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 144
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8f3867aee224e35a0800000000000000
+      internalID: -6539716839625817096
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_125
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 158
+        width: 18
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 133101df1e725fc00800000000000000
+      internalID: 933696349316059953
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_126
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 111
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 183cdce59d2ab6290800000000000000
+      internalID: -7896038467181886591
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_127
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 189
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8e09d41a08b260340800000000000000
+      internalID: 4829595481863459048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_128
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 64
+        width: 39
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0dd860bfb439399e0800000000000000
+      internalID: -1615785886752535088
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_129
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 197
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 714e9ec5d2d7712a0800000000000000
+      internalID: -6766802281315048425
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_130
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 193
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cced4036ed319c510800000000000000
+      internalID: 1569807790980259532
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_131
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 201
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8b852045d61c00360800000000000000
+      internalID: 7133914485059901624
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_132
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 112
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a89c101f455acb4a0800000000000000
+      internalID: -6576199571628504694
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_133
+      rect:
+        serializedVersion: 2
+        x: 109
+        y: 125
+        width: 33
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c265e85bd191e28c0800000000000000
+      internalID: -4022249801804523988
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_134
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 195
+        width: 27
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f54e486d4a4a1aec0800000000000000
+      internalID: -3557381202765355937
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_135
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 180
+        width: 16
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 97412775ba032f190800000000000000
+      internalID: -7930222481381387143
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_136
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 136
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 470cbc5516e5b76c0800000000000000
+      internalID: -4144615259920154508
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_137
+      rect:
+        serializedVersion: 2
+        x: 149
+        y: 201
+        width: 18
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8f32493876725efd0800000000000000
+      internalID: -2313399508042243080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_138
+      rect:
+        serializedVersion: 2
+        x: 183
+        y: 107
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f3de74a52dd84bb40800000000000000
+      internalID: 5455140983249825087
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_139
+      rect:
+        serializedVersion: 2
+        x: 186
+        y: 119
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dfa281b54e4619ac0800000000000000
+      internalID: -3850185274481431811
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_140
+      rect:
+        serializedVersion: 2
+        x: 214
+        y: 195
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e082df0cb28624bf0800000000000000
+      internalID: -341596084596037618
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_141
+      rect:
+        serializedVersion: 2
+        x: 214
+        y: 175
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ed1d78ffe68b1e050800000000000000
+      internalID: 5828142179667136990
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_142
+      rect:
+        serializedVersion: 2
+        x: 234
+        y: 145
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7b55fccc77c059f40800000000000000
+      internalID: 5734503409202976183
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_143
+      rect:
+        serializedVersion: 2
+        x: 243
+        y: 196
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 13ae59e2a1b3d35a0800000000000000
+      internalID: -6540006100235326927
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_144
+      rect:
+        serializedVersion: 2
+        x: 247
+        y: 160
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 73f81ca9d3ccb09b0800000000000000
+      internalID: -5112768386987618505
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_145
+      rect:
+        serializedVersion: 2
+        x: 250
+        y: 181
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a3e91e033db86e9b0800000000000000
+      internalID: -5051196192874979782
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_146
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 127
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5191d49a8a4678980800000000000000
+      internalID: -8536743893099800299
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_147
+      rect:
+        serializedVersion: 2
+        x: 275
+        y: 197
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3f0af4a995ce57a80800000000000000
+      internalID: -8469603654615195405
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_148
+      rect:
+        serializedVersion: 2
+        x: 339
+        y: 153
+        width: 6
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a0683e05a8dabb810800000000000000
+      internalID: 1782208887129343498
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_149
+      rect:
+        serializedVersion: 2
+        x: 340
+        y: 172
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7805024c605f59280800000000000000
+      internalID: -9037047667839971193
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_150
+      rect:
+        serializedVersion: 2
+        x: 354
+        y: 157
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1578659cc3d2b2e80800000000000000
+      internalID: -8202412557226047663
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_151
+      rect:
+        serializedVersion: 2
+        x: 369
+        y: 190
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 18e15bdbd148d37d0800000000000000
+      internalID: -2937046118704013695
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_152
+      rect:
+        serializedVersion: 2
+        x: 427
+        y: 137
+        width: 13
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d219d0c46d9239f70800000000000000
+      internalID: 9192737264769012013
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_153
+      rect:
+        serializedVersion: 2
+        x: 429
+        y: 128
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cfb3ff2e1987a1b00800000000000000
+      internalID: 800084451785653244
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_154
+      rect:
+        serializedVersion: 2
+        x: 444
+        y: 140
+        width: 20
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b123d3b1242a1ae50800000000000000
+      internalID: 6818909715624178203
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_155
+      rect:
+        serializedVersion: 2
+        x: 466
+        y: 110
+        width: 46
+        height: 105
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bc4853d6ab7f6ffe0800000000000000
+      internalID: -1155463874305751861
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_156
+      rect:
+        serializedVersion: 2
+        x: 502
+        y: 177
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 563b969733b75b150800000000000000
+      internalID: 5887747548867310437
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_157
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 98
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5edf600f621d4e420800000000000000
+      internalID: 2658479645221387749
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_158
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 34
+        width: 22
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5482a785d00eb1ca0800000000000000
+      internalID: -6044991726891161531
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_159
+      rect:
+        serializedVersion: 2
+        x: 257
+        y: 88
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3e20952c2c6623f00800000000000000
+      internalID: 1095050646074753763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_160
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 78
+        width: 17
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6eb31b550b09b3fb0800000000000000
+      internalID: -4666977501813064730
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_161
+      rect:
+        serializedVersion: 2
+        x: 165
+        y: 80
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a78aaba7872b67e50800000000000000
+      internalID: 6806824117341956218
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_162
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 80
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 268b3787792bfb220800000000000000
+      internalID: 2503916281471940706
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_163
+      rect:
+        serializedVersion: 2
+        x: 433
+        y: 68
+        width: 7
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6433cb3f2d3394fa0800000000000000
+      internalID: -5816060462646938810
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_164
+      rect:
+        serializedVersion: 2
+        x: 213
+        y: 70
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0703c55aa2c168d10800000000000000
+      internalID: 2127418843467624560
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_165
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 39
+        width: 7
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 43032a3f0e32576c0800000000000000
+      internalID: -4146368432857534412
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_166
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 56
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ca28ce791f32a32b0800000000000000
+      internalID: -5604127265766210900
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_167
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 59
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 11e31dfad270c77f0800000000000000
+      internalID: -613607556424581615
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_168
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 51
+        width: 7
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c3cafe4b857ee86b0800000000000000
+      internalID: -5292038143935009732
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_169
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 60
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 25394d2b599fe73b0800000000000000
+      internalID: -5512694472509189294
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_170
+      rect:
+        serializedVersion: 2
+        x: 429
+        y: 59
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 31299acf6ae1aec20800000000000000
+      internalID: 3236432984771498515
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_171
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 44
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2bcea6c13499a2360800000000000000
+      internalID: 7145692272295341234
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_172
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 44
+        width: 12
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: edbba518dd8741370800000000000000
+      internalID: 8292385706649238494
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_173
+      rect:
+        serializedVersion: 2
+        x: 153
+        y: 39
+        width: 8
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ff910de74b2f96c0800000000000000
+      internalID: -4134538344983846925
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_174
+      rect:
+        serializedVersion: 2
+        x: 174
+        y: 45
+        width: 15
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4c8d15d251626f260800000000000000
+      internalID: 7130928932384266436
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_175
+      rect:
+        serializedVersion: 2
+        x: 423
+        y: 43
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2cca367cb98cc4000800000000000000
+      internalID: 21612669620694210
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_176
+      rect:
+        serializedVersion: 2
+        x: 425
+        y: 51
+        width: 13
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 04c54b85df7436fb0800000000000000
+      internalID: -4655798436330447808
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_177
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 34
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 27df99adb41961600800000000000000
+      internalID: 438697768691301746
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_178
+      rect:
+        serializedVersion: 2
+        x: 146
+        y: 39
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 20766f948a21e9f90800000000000000
+      internalID: -6945093061354035454
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_179
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 36
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 293cab3eea5854700800000000000000
+      internalID: 523971917850002322
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_180
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 40
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 11522c59979a89fc0800000000000000
+      internalID: -3487851571729783535
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_181
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 36
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6034180f6f4030910800000000000000
+      internalID: 1802289734521799430
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_182
+      rect:
+        serializedVersion: 2
+        x: 422
+        y: 32
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 290ff6b6a9e9a6f00800000000000000
+      internalID: 1110874644164898962
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_183
+      rect:
+        serializedVersion: 2
+        x: 430
+        y: 40
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3925dc3bca9524110800000000000000
+      internalID: 1243655045393502867
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_184
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 11
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3a5e15bfddfbb9dd0800000000000000
+      internalID: -2478176209812200029
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_185
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 13
+        width: 41
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a6eda1c27da40e400800000000000000
+      internalID: 351363058953281130
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_186
+      rect:
+        serializedVersion: 2
+        x: 287
+        y: 11
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 80eabc036a0691810800000000000000
+      internalID: 1736525398227529224
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_187
+      rect:
+        serializedVersion: 2
+        x: 412
+        y: 9
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 654e1b5c18eaea4b0800000000000000
+      internalID: -5427208628544084906
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_188
+      rect:
+        serializedVersion: 2
+        x: 417
+        y: 15
+        width: 10
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ada0e6857cea26360800000000000000
+      internalID: 7161478528677841626
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_189
+      rect:
+        serializedVersion: 2
+        x: 426
+        y: 23
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f19259979b73aeae0800000000000000
+      internalID: -1519340654535825121
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_190
+      rect:
+        serializedVersion: 2
+        x: 455
+        y: 16
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0c784c4c67cc51cd0800000000000000
+      internalID: -2587937600375060544
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_191
+      rect:
+        serializedVersion: 2
+        x: 137
+        y: 3
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1ad4565555e6ceb90800000000000000
+      internalID: -7211267590543028831
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Stardust_192
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 0
+        width: 12
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a190462eaad998ba0800000000000000
+      internalID: -6086160064146306790
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Sprite_Stardust_0: -4205235008707250773
+      Sprite_Stardust_1: 4952898374098126501
+      Sprite_Stardust_10: -6767232749253913395
+      Sprite_Stardust_100: 5117691071098821037
+      Sprite_Stardust_101: 5820628056309359205
+      Sprite_Stardust_102: -1576939384218142701
+      Sprite_Stardust_103: 892743836875868655
+      Sprite_Stardust_104: -1361677686419071827
+      Sprite_Stardust_105: -5648008066179260591
+      Sprite_Stardust_106: -8422672148840285587
+      Sprite_Stardust_107: -2466095818310658025
+      Sprite_Stardust_108: 2585808486235223371
+      Sprite_Stardust_109: -6671558732476154276
+      Sprite_Stardust_11: 1520617199004963608
+      Sprite_Stardust_110: 52863710766688038
+      Sprite_Stardust_111: -7095686786410349249
+      Sprite_Stardust_112: -1457148627689737812
+      Sprite_Stardust_113: -6556930174749827616
+      Sprite_Stardust_114: -230940130966350973
+      Sprite_Stardust_115: 4108697077275044431
+      Sprite_Stardust_116: -4567670350467008348
+      Sprite_Stardust_117: -1411423216884015573
+      Sprite_Stardust_118: -3301559631207962666
+      Sprite_Stardust_119: -805599919644608779
+      Sprite_Stardust_12: 2802115905181265153
+      Sprite_Stardust_120: 5716475078537325038
+      Sprite_Stardust_121: -4949524729921038331
+      Sprite_Stardust_122: 8759674418981871249
+      Sprite_Stardust_123: 7350544478293249516
+      Sprite_Stardust_124: -6539716839625817096
+      Sprite_Stardust_125: 933696349316059953
+      Sprite_Stardust_126: -7896038467181886591
+      Sprite_Stardust_127: 4829595481863459048
+      Sprite_Stardust_128: -1615785886752535088
+      Sprite_Stardust_129: -6766802281315048425
+      Sprite_Stardust_13: 393528109217888332
+      Sprite_Stardust_130: 1569807790980259532
+      Sprite_Stardust_131: 7133914485059901624
+      Sprite_Stardust_132: -6576199571628504694
+      Sprite_Stardust_133: -4022249801804523988
+      Sprite_Stardust_134: -3557381202765355937
+      Sprite_Stardust_135: -7930222481381387143
+      Sprite_Stardust_136: -4144615259920154508
+      Sprite_Stardust_137: -2313399508042243080
+      Sprite_Stardust_138: 5455140983249825087
+      Sprite_Stardust_139: -3850185274481431811
+      Sprite_Stardust_14: -9186622903926815414
+      Sprite_Stardust_140: -341596084596037618
+      Sprite_Stardust_141: 5828142179667136990
+      Sprite_Stardust_142: 5734503409202976183
+      Sprite_Stardust_143: -6540006100235326927
+      Sprite_Stardust_144: -5112768386987618505
+      Sprite_Stardust_145: -5051196192874979782
+      Sprite_Stardust_146: -8536743893099800299
+      Sprite_Stardust_147: -8469603654615195405
+      Sprite_Stardust_148: 1782208887129343498
+      Sprite_Stardust_149: -9037047667839971193
+      Sprite_Stardust_15: 7703867633851271439
+      Sprite_Stardust_150: -8202412557226047663
+      Sprite_Stardust_151: -2937046118704013695
+      Sprite_Stardust_152: 9192737264769012013
+      Sprite_Stardust_153: 800084451785653244
+      Sprite_Stardust_154: 6818909715624178203
+      Sprite_Stardust_155: -1155463874305751861
+      Sprite_Stardust_156: 5887747548867310437
+      Sprite_Stardust_157: 2658479645221387749
+      Sprite_Stardust_158: -6044991726891161531
+      Sprite_Stardust_159: 1095050646074753763
+      Sprite_Stardust_16: 5593606969801678617
+      Sprite_Stardust_160: -4666977501813064730
+      Sprite_Stardust_161: 6806824117341956218
+      Sprite_Stardust_162: 2503916281471940706
+      Sprite_Stardust_163: -5816060462646938810
+      Sprite_Stardust_164: 2127418843467624560
+      Sprite_Stardust_165: -4146368432857534412
+      Sprite_Stardust_166: -5604127265766210900
+      Sprite_Stardust_167: -613607556424581615
+      Sprite_Stardust_168: -5292038143935009732
+      Sprite_Stardust_169: -5512694472509189294
+      Sprite_Stardust_17: 5740107744234117841
+      Sprite_Stardust_170: 3236432984771498515
+      Sprite_Stardust_171: 7145692272295341234
+      Sprite_Stardust_172: 8292385706649238494
+      Sprite_Stardust_173: -4134538344983846925
+      Sprite_Stardust_174: 7130928932384266436
+      Sprite_Stardust_175: 21612669620694210
+      Sprite_Stardust_176: -4655798436330447808
+      Sprite_Stardust_177: 438697768691301746
+      Sprite_Stardust_178: -6945093061354035454
+      Sprite_Stardust_179: 523971917850002322
+      Sprite_Stardust_18: -6785585040040615266
+      Sprite_Stardust_180: -3487851571729783535
+      Sprite_Stardust_181: 1802289734521799430
+      Sprite_Stardust_182: 1110874644164898962
+      Sprite_Stardust_183: 1243655045393502867
+      Sprite_Stardust_184: -2478176209812200029
+      Sprite_Stardust_185: 351363058953281130
+      Sprite_Stardust_186: 1736525398227529224
+      Sprite_Stardust_187: -5427208628544084906
+      Sprite_Stardust_188: 7161478528677841626
+      Sprite_Stardust_189: -1519340654535825121
+      Sprite_Stardust_19: -7931526764816986865
+      Sprite_Stardust_190: -2587937600375060544
+      Sprite_Stardust_191: -7211267590543028831
+      Sprite_Stardust_192: -6086160064146306790
+      Sprite_Stardust_2: 1339108920839831131
+      Sprite_Stardust_20: -8243549718759386781
+      Sprite_Stardust_21: 1403048346330944784
+      Sprite_Stardust_22: 8765183834735098010
+      Sprite_Stardust_23: -7689438706640749734
+      Sprite_Stardust_24: -3464903711770694794
+      Sprite_Stardust_25: 5373503613996001872
+      Sprite_Stardust_26: 4771916257614912694
+      Sprite_Stardust_27: -1118798343654473212
+      Sprite_Stardust_28: 5545776911789609112
+      Sprite_Stardust_29: -2061594934800937568
+      Sprite_Stardust_3: 4718135831859524880
+      Sprite_Stardust_30: 1529300884242531162
+      Sprite_Stardust_31: -3030083513482230237
+      Sprite_Stardust_32: 8678568024707473972
+      Sprite_Stardust_33: -1350862892398259165
+      Sprite_Stardust_34: -4315628335439747916
+      Sprite_Stardust_35: 4956351364886804926
+      Sprite_Stardust_36: -448003499755441633
+      Sprite_Stardust_37: 2473172536757563413
+      Sprite_Stardust_38: -2498512448667689683
+      Sprite_Stardust_39: 4626212141437718966
+      Sprite_Stardust_4: -7685823362256861119
+      Sprite_Stardust_40: -3050138598204278198
+      Sprite_Stardust_41: 7087936375129041218
+      Sprite_Stardust_42: -8561881410361665241
+      Sprite_Stardust_43: -7052323354393579258
+      Sprite_Stardust_44: 8971566699641425017
+      Sprite_Stardust_45: -5288995253431011465
+      Sprite_Stardust_46: 2293078114457560494
+      Sprite_Stardust_47: -952990745238867013
+      Sprite_Stardust_48: -8010045368859560558
+      Sprite_Stardust_49: -4293307927468062737
+      Sprite_Stardust_5: -5869127520150883572
+      Sprite_Stardust_50: -4381552581244695981
+      Sprite_Stardust_51: -3240200350694671264
+      Sprite_Stardust_52: -8849050548295009549
+      Sprite_Stardust_53: -442286703560011303
+      Sprite_Stardust_54: -853554672434468991
+      Sprite_Stardust_55: -6310784012402462316
+      Sprite_Stardust_56: 3895018457642039153
+      Sprite_Stardust_57: 4792177783277133693
+      Sprite_Stardust_58: -1790230065192157476
+      Sprite_Stardust_59: 148013901456162357
+      Sprite_Stardust_6: 3917101573142954415
+      Sprite_Stardust_60: -8240255573249056492
+      Sprite_Stardust_61: -4468521769962698300
+      Sprite_Stardust_62: 3518099411046200352
+      Sprite_Stardust_63: -774562097232453350
+      Sprite_Stardust_64: -2027363077353307979
+      Sprite_Stardust_65: 2998639551498367436
+      Sprite_Stardust_66: 6578807076563598335
+      Sprite_Stardust_67: -4261426515845830917
+      Sprite_Stardust_68: -7997620174090542209
+      Sprite_Stardust_69: -3883758366972573954
+      Sprite_Stardust_7: -4732045242630080097
+      Sprite_Stardust_70: -4497046781656063710
+      Sprite_Stardust_71: -3967368334737427559
+      Sprite_Stardust_72: 755448358151708598
+      Sprite_Stardust_73: -8975301321586195397
+      Sprite_Stardust_74: 3851849140590612143
+      Sprite_Stardust_75: 5145324927367576698
+      Sprite_Stardust_76: 7544173418626615332
+      Sprite_Stardust_77: -1250259596676751570
+      Sprite_Stardust_78: -3342365462222464259
+      Sprite_Stardust_79: -1910137866541953459
+      Sprite_Stardust_8: 1951288299354061468
+      Sprite_Stardust_80: -1020451160228048822
+      Sprite_Stardust_81: -822150515921677890
+      Sprite_Stardust_82: -2238764660162275715
+      Sprite_Stardust_83: -5931450283711435522
+      Sprite_Stardust_84: 1669217280631701332
+      Sprite_Stardust_85: -7175250983223224211
+      Sprite_Stardust_86: 3636215482296403649
+      Sprite_Stardust_87: 6886495895386399732
+      Sprite_Stardust_88: 7704771776316892366
+      Sprite_Stardust_89: -1595421666487335268
+      Sprite_Stardust_9: -5740176253908748946
+      Sprite_Stardust_90: -2325743684878210626
+      Sprite_Stardust_91: 5041502552204648144
+      Sprite_Stardust_92: -2198685275666643686
+      Sprite_Stardust_93: -8916921132304881425
+      Sprite_Stardust_94: 2798383885506006510
+      Sprite_Stardust_95: 5833347462546344745
+      Sprite_Stardust_96: -58901047954326220
+      Sprite_Stardust_97: -2719167647841126624
+      Sprite_Stardust_98: 2309309786351542130
+      Sprite_Stardust_99: -3316840020083457919
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

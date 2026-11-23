@@ -1,5 +1,6 @@
 using Core;
 using System;
+using System.Collections;
 using UnityEngine;
 
 namespace GamePlay
@@ -14,9 +15,9 @@ namespace GamePlay
         [Tooltip("Bossの最大体力")]
         [SerializeField] private int maxHealth = 100;
         [Tooltip("Bossの第二段階目に移る体力の割合(%)")]
-        [SerializeField] private int secondPhaseHealth = 30;
+        [SerializeField] private int secondPhaseHealth = 70;
         [Tooltip("Bossの第三段階目に移る体力の割合(%)")]
-        [SerializeField] private int thirdPhaseHealth = 70;
+        [SerializeField] private int thirdPhaseHealth = 30;
         [Tooltip("Playerに接触したときに与えるダメージ")]
         [SerializeField] private int contactDamage = 1;
 
@@ -38,6 +39,20 @@ namespace GamePlay
         [SerializeField] private Sprite linearSprite;
         [SerializeField] private Sprite fanSprite;
         [SerializeField] private Sprite homingSprite;
+
+        [Header("見た目(色)")]
+        [Tooltip("色を変えるBossのSpriteRenderer")]
+        [SerializeField] private SpriteRenderer spriteRenderer;
+        [Tooltip("第一段階(直進)のときのBossの色")]
+        [SerializeField] private Color linearPhaseColor = Color.white;
+        [Tooltip("第二段階(扇形)のときのBossの色")]
+        [SerializeField] private Color fanPhaseColor = Color.yellow;
+        [Tooltip("第三段階(ホーミング)のときのBossの色")]
+        [SerializeField] private Color homingPhaseColor = Color.magenta;
+        [Tooltip("被弾したときに一回点滅する色")]
+        [SerializeField] private Color hitFlashColor = Color.red;
+        [Tooltip("被弾の点滅の長さ(秒)")]
+        [SerializeField] private float hitFlashDuration = 0.1f;
 
         [Header("発射インターバル(秒)")]
         [SerializeField] private float linearInterval = 5f;
@@ -62,6 +77,8 @@ namespace GamePlay
         private float homingTimer;
         private bool isFanOdd = true;//扇形は奇数個と偶数個を交互に撃つ
         private Player targetPlayer;//targetのPlayer(撃墜・復活中かを見るため)
+        private Color currentPhaseColor = Color.white;//今の段階の色(被弾の点滅から戻す色)
+        private Coroutine hitFlashCoroutine;//点滅中かの判断と、連続被弾時の点滅のやり直しに使う
 
         /// <summary>
         /// ゲームが進行中か(GameManagerがPlayingのときだけtrue)<br/>
@@ -74,6 +91,7 @@ namespace GamePlay
             if (!IsPlaying) return;
             currentHealth -= damage;
             UpdateState();
+            HitFlash();
             if (currentHealth <= 0) GameClearEvent?.Invoke();
         }
 
@@ -83,6 +101,7 @@ namespace GamePlay
             if (bulletPool == null) Debug.LogError("BulletPoolがアタッチされていません。");
             if (target == null) Debug.LogError("狙う対象(Player)がアタッチされていません。");
             else target.TryGetComponent(out targetPlayer);
+            if (spriteRenderer == null) Debug.LogError("SpriteRendererがアタッチされていません。");
             if (bossCollider == null)
             {
                 Debug.LogError("Collider2Dがアタッチされていません。");
@@ -95,6 +114,7 @@ namespace GamePlay
             currentHealth = maxHealth;
             startY = transform.position.y;
             linearTimer = linearInterval;//最初の1発はすぐ撃つ
+            ApplyPhaseColor();
             GameClearEvent += StopGame;
         }
 
@@ -208,7 +228,48 @@ namespace GamePlay
 
             if (next == State) return;
             State = next;
+            ApplyPhaseColor();
             Debug.Log($"Bossが{State}に移行しました。");
+        }
+
+        /// <summary>
+        /// 今の段階に合わせた色にする<br/>
+        /// 被弾の点滅中は、点滅が終わったときに戻る色だけを更新する。
+        /// </summary>
+        private void ApplyPhaseColor()
+        {
+            switch (State)
+            {
+                case BossState.FanShapePhase:
+                    currentPhaseColor = fanPhaseColor;
+                    break;
+                case BossState.HomingPhase:
+                    currentPhaseColor = homingPhaseColor;
+                    break;
+                default:
+                    currentPhaseColor = linearPhaseColor;
+                    break;
+            }
+            if (spriteRenderer != null && hitFlashCoroutine == null) spriteRenderer.color = currentPhaseColor;
+        }
+
+        /// <summary>
+        /// 被弾したときに一回点滅する<br/>
+        /// 点滅中にもう一度被弾した場合は、点滅を最初からやり直す。
+        /// </summary>
+        private void HitFlash()
+        {
+            if (spriteRenderer == null) return;
+            if (hitFlashCoroutine != null) StopCoroutine(hitFlashCoroutine);
+            hitFlashCoroutine = StartCoroutine(HitFlashRoutine());
+        }
+
+        private IEnumerator HitFlashRoutine()
+        {
+            spriteRenderer.color = hitFlashColor;
+            yield return new WaitForSeconds(hitFlashDuration);
+            spriteRenderer.color = currentPhaseColor;
+            hitFlashCoroutine = null;
         }
 
         /// <summary>
