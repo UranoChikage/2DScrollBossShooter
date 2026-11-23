@@ -17,10 +17,13 @@ namespace GamePlay
         [SerializeField] private float crouchSpeed;
         [Tooltip("Playerの最大体力")]
         [SerializeField] private int maxHealth = 1;
+        [SerializeField] private Vector2 screenMargin = new Vector2(0.5f, 0.5f);
         [Tooltip("クールタイムの長さ")]
         [SerializeField] private float coolTimeDuration = 0.5f;
         [Tooltip("爆弾の数")]
         [SerializeField] private int bombCount = 3;
+        [Header("ゲーム全体の状態を持つGameManager")]
+        [SerializeField] private GameManager gameManager;
         [Header("Playerの弾/爆弾を生成するBulletPool")]
         [SerializeField] private BulletPool bulletPool;
         [SerializeField] private BulletPool bombPool;
@@ -30,7 +33,12 @@ namespace GamePlay
         private float currentCoolTime = 0f;
         private bool isCoolTime;
         private InputSystem_Actions inputActions;
-        private bool isPlaying = true;
+
+        /// <summary>
+        /// ゲームが進行中か(GameManagerがPlayingのときだけtrue)<br/>
+        /// ポーズ中・リザルト中は操作や被ダメージを受け付けない。
+        /// </summary>
+        private bool IsPlaying => gameManager != null && gameManager.State == GameState.Playing;
 
         //IInputProvider=========================
         public Vector2 Move { get; private set; }
@@ -41,13 +49,14 @@ namespace GamePlay
         //=========================================
         public void TakeDamage(int damage)
         {
-            if (!isPlaying) return;
+            if (!IsPlaying) return;
             currentHealth -= damage;
             if (IsGameOver()) GameOverEvent?.Invoke();
         }
 
         private void Awake()
         {
+            if (gameManager == null) Debug.LogError("GameManagerがアタッチされていません。");
             InitInputActions();
             currentHealth = maxHealth;
             OnBombPressed += Bomb;
@@ -57,8 +66,9 @@ namespace GamePlay
         private void Update()
         {
             InputUpdate();//入力の更新
-            if (!isPlaying)
+            if (!IsPlaying)
             {
+                //ポーズ中・リザルト中はここで止まる(ポーズ中に弾が出続けないようにする)
                 //TODO : ゲームオーバー時の処理を追加する　入力をUI操作に切り替える。
                 return;
             }
@@ -76,6 +86,22 @@ namespace GamePlay
             float moveSpeed = OnCrouched ? crouchSpeed : speed;
             Vector2 dir = Vector2.ClampMagnitude(Move, 1f);
             transform.position += (Vector3)dir * moveSpeed * Time.deltaTime;
+            ClampToScreen();
+        }
+
+        /// <summary>
+        /// Playerが画面内から出ないようにする
+        /// </summary>
+        private void ClampToScreen()
+        {
+            Camera cam = Camera.main;
+            if (cam == null) return;
+            Vector2 min = cam.ViewportToWorldPoint(new Vector3(0f, 0f, 0f));
+            Vector2 max = cam.ViewportToWorldPoint(new Vector3(1f, 1f, 0f));
+            Vector3 pos = transform.position;
+            pos.x = Mathf.Clamp(pos.x, min.x + screenMargin.x, max.x - screenMargin.x);
+            pos.y = Mathf.Clamp(pos.y, min.y + screenMargin.y, max.y - screenMargin.y);
+            transform.position = pos;
         }
         private void CoolTimeCount()
         {
@@ -96,7 +122,7 @@ namespace GamePlay
         }
         private void Bomb()
         {
-            if (bombCount <= 0) return;
+            if (!IsPlaying || bombCount <= 0) return;//ポーズ中はボムも使えない
             bombCount--;
             bombPool?.Get(transform.position);
         }
@@ -116,7 +142,6 @@ namespace GamePlay
         private void StopGame()
         {
             Debug.Log("Game Over");
-            isPlaying = false;
             OnBombPressed -= Bomb;
             //TODO : ゲームオーバー時のAnimation等処理を追加する
         }

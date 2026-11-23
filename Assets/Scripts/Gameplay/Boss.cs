@@ -16,6 +16,9 @@ namespace GamePlay
         [Tooltip("Playerに接触したときに与えるダメージ")]
         [SerializeField] private int contactDamage = 1;
 
+        [Header("ゲーム全体の状態を持つGameManager")]
+        [SerializeField] private GameManager gameManager;
+
         [Header("上下移動")]
         [Tooltip("上下移動の速さ")]
         [SerializeField] private float moveSpeed = 1.5f;
@@ -49,11 +52,16 @@ namespace GamePlay
         private float fanTimer;
         private float homingTimer;
         private bool isFanOdd = true;//扇形は奇数個と偶数個を交互に撃つ
-        private bool isPlaying = true;
+
+        /// <summary>
+        /// ゲームが進行中か(GameManagerがPlayingのときだけtrue)<br/>
+        /// ポーズ中・リザルト中は動かず、ダメージも受けない。
+        /// </summary>
+        private bool IsPlaying => gameManager != null && gameManager.State == GameState.Playing;
 
         public void TakeDamage(int damage)
         {
-            if (!isPlaying) return;
+            if (!IsPlaying) return;
             currentHealth -= damage;
             UpdateState();
             if (currentHealth <= 0) GameClearEvent?.Invoke();
@@ -61,6 +69,7 @@ namespace GamePlay
 
         private void Awake()
         {
+            if (gameManager == null) Debug.LogError("GameManagerがアタッチされていません。");
             if (bulletPool == null) Debug.LogError("BulletPoolがアタッチされていません。");
             if (target == null) Debug.LogError("狙う対象(Player)がアタッチされていません。");
             if (bossCollider == null)
@@ -80,7 +89,7 @@ namespace GamePlay
 
         private void Update()
         {
-            if (!isPlaying) return;
+            if (!IsPlaying) return;
             MoveVertical();
             FireUpdate();
         }
@@ -93,7 +102,8 @@ namespace GamePlay
         }
 
         /// <summary>
-        /// 段階に応じて、有効なパターンのインターバルを数えて撃つ
+        /// 段階に応じて、有効なパターンのインターバルを数えて撃つ<br/>
+        ///「弾発射パターンが"追加"される」と書かれていたので、前のパターンも撃つようにしている。
         /// </summary>
         private void FireUpdate()
         {
@@ -183,7 +193,7 @@ namespace GamePlay
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            if (!isPlaying) return;
+            if (!IsPlaying) return;
             if (other.TryGetComponent<Player>(out var player))
             {
                 player.TakeDamage(contactDamage);
@@ -193,7 +203,6 @@ namespace GamePlay
         private void StopGame()
         {
             Debug.Log("Game Clear");
-            isPlaying = false;
             //TODO : 撃破時のAnimation、画面上の弾を消す処理、クリア画面への遷移を追加する
         }
 
