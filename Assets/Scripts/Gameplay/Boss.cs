@@ -54,6 +54,20 @@ namespace GamePlay
         [Tooltip("被弾の点滅の長さ(秒)")]
         [SerializeField] private float hitFlashDuration = 0.1f;
 
+        [Header("登場演出のAnimation")]
+        [Tooltip("登場演出のclip(長さの取得に使う)")]
+        [SerializeField] private AnimationClip introClip;
+        [Tooltip("登場演出に遷移するTriggerの名前")]
+        [SerializeField] private string introTriggerName = "Intro";
+
+        [Header("撃破Animation")]
+        [Tooltip("撃破Animationを流すAnimator")]
+        [SerializeField] private Animator animator;
+        [Tooltip("撃破Animationのclip(長さの取得に使う)")]
+        [SerializeField] private AnimationClip defeatClip;
+        [Tooltip("撃破Animationに遷移するTriggerの名前")]
+        [SerializeField] private string defeatTriggerName = "Defeat";
+
         [Header("発射インターバル(秒)")]
         [SerializeField] private float linearInterval = 5f;
         [SerializeField] private float fanInterval = 7f;
@@ -68,10 +82,13 @@ namespace GamePlay
         [SerializeField] private float fanAngle = 60f;
 
         public event Action GameClearEvent;
+        /// <summary>登場演出が終わったことをGameManagerに伝える</summary>
+        public event Action IntroEndEvent;
         public BossState State { get; private set; } = BossState.LinearPhase;
 
         private int currentHealth;
         private float startY;
+        private float moveTimer;//上下移動の経過時間
         private float linearTimer;
         private float fanTimer;
         private float homingTimer;
@@ -102,6 +119,7 @@ namespace GamePlay
             if (target == null) Debug.LogError("狙う対象(Player)がアタッチされていません。");
             else target.TryGetComponent(out targetPlayer);
             if (spriteRenderer == null) Debug.LogError("SpriteRendererがアタッチされていません。");
+            if (animator == null || defeatClip == null) Debug.LogError("撃破用のAnimatorまたはAnimationClipがアタッチされていません。");
             if (bossCollider == null)
             {
                 Debug.LogError("Collider2Dがアタッチされていません。");
@@ -114,6 +132,7 @@ namespace GamePlay
             currentHealth = maxHealth;
             startY = transform.position.y;
             linearTimer = linearInterval;//最初の1発はすぐ撃つ
+            if (animator != null) animator.enabled = false;//演出のときだけ有効にする
             ApplyPhaseColor();
             GameClearEvent += StopGame;
         }
@@ -127,10 +146,32 @@ namespace GamePlay
             FireUpdate();
         }
 
+        private void Start() => StartCoroutine(IntroRoutine());
+
+        /// <summary>
+        /// 登場演出を流して、終わったらIntroEndEventで伝える<br/>
+        /// 演出中はGameManagerがIntro状態なので、Bossは無敵(TakeDamageが無効)で弾も撃たない。
+        /// </summary>
+        private IEnumerator IntroRoutine()
+        {
+            if (animator != null)
+            {
+                //なぜか色を上書きされてしまうので、演出中以外はAnimatorを無効にしておく必要がある
+                animator.enabled = true;//Animatorは演出中だけ有効にする
+                animator.SetTrigger(introTriggerName);
+            }
+            if (introClip != null) yield return new WaitForSeconds(introClip.length);
+
+            if (animator != null) animator.enabled = false;
+            ApplyPhaseColor();//演出で変わった色を、今の段階の色に戻す
+            IntroEndEvent?.Invoke();
+        }
+
         private void MoveVertical()
         {
+            moveTimer += Time.deltaTime;
             Vector3 pos = transform.position;
-            pos.y = startY + Mathf.Sin(Time.time * moveSpeed) * moveRange;
+            pos.y = startY + Mathf.Sin(moveTimer * moveSpeed) * moveRange;
             transform.position = pos;
         }
 
@@ -288,7 +329,24 @@ namespace GamePlay
         private void StopGame()
         {
             Debug.Log("Game Clear");
-            //TODO : 撃破時のAnimation、画面上の弾を消す処理、クリア画面への遷移を追加する
+            StartCoroutine(DefeatRoutine());
+            //TODO : 画面上の弾を消す処理を追加する
+        }
+
+        /// <summary>
+        /// 撃破Animationを流して、終わったらリザルトへ移る<br/>
+        /// 撃破の時点でGameManagerはResult状態になっているので、Bossの移動や発射は止まっている。
+        /// </summary>
+        private IEnumerator DefeatRoutine()
+        {
+            if (animator != null)
+            {
+                animator.enabled = true;//演出のために有効にする(終わったらシーン遷移するので切り直さない)
+                animator.SetTrigger(defeatTriggerName);
+            }
+            if (defeatClip != null) yield return new WaitForSeconds(defeatClip.length);
+
+            if (gameManager != null) gameManager.GoToResult();
         }
 
         private void OnDestroy()

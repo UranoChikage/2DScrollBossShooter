@@ -37,6 +37,12 @@ namespace GamePlay
         [Tooltip("復活Animationのclip(長さの取得に使う)")]
         [SerializeField] private AnimationClip respawnClip;
 
+        [Header("登場演出のAnimation")]
+        [Tooltip("登場演出のclip(長さの取得に使う)")]
+        [SerializeField] private AnimationClip introClip;
+        [Tooltip("Animatorにある登場演出のStateの名前")]
+        [SerializeField] private string introStateName = "PlayerIntro";
+
         [Header("無敵(復活Animationが終わった直後)")]
         [Tooltip("点滅させるSpriteRenderer(Visual)")]
         [SerializeField] private SpriteRenderer spriteRenderer;
@@ -51,6 +57,8 @@ namespace GamePlay
         [Tooltip("復活後の無敵中の点滅の色(半透明にすると消えかけて見える)")]
         [SerializeField] private Color invincibleBlinkColor = new Color(1f, 1f, 1f, 0.3f);
         public event Action GameOverEvent;
+        /// <summary>登場演出が終わったことをGameManagerに伝える</summary>
+        public event Action IntroEndEvent;
 
         /// <summary>撃墜・復活の状態。Bossが発射を止めるときにも参照する。</summary>
         public PlayerState State { get; private set; } = PlayerState.Alive;
@@ -69,8 +77,8 @@ namespace GamePlay
         private IDisposable anyButtonSubscription;//onAnyButtonPressの購読解除用
 
         /// <summary>
-        /// ゲームが進行中か(GameManagerがPlayingのときだけtrue)<br/>
-        /// ポーズ中・リザルト中は操作や被ダメージを受け付けない。
+        /// 操作できる状態か(GameManagerがPlayingのときだけtrue)<br/>
+        /// 登場演出中(Intro)・ポーズ中・リザルト中は、操作や被ダメージを受け付けない。
         /// </summary>
         private bool IsPlaying => gameManager != null && gameManager.State == GameState.Playing;
 
@@ -101,6 +109,21 @@ namespace GamePlay
             currentHealth = maxHealth;
             OnBombPressed += Bomb;
             GameOverEvent += StopGame;
+        }
+
+        private void Start() => StartCoroutine(IntroRoutine());
+
+        /// <summary>
+        /// 登場演出を流して、終わったらIntroEndEventで伝える<br/>
+        /// 演出中(Intro状態)はPlayerは操作できない。
+        /// </summary>
+        private IEnumerator IntroRoutine()
+        {
+            PlayAnimation(introStateName);
+            if (introClip != null) yield return new WaitForSeconds(introClip.length);
+
+            PlayAnimation(IdleStateName);
+            IntroEndEvent?.Invoke();
         }
 
         private void Update()

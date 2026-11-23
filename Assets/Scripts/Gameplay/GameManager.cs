@@ -17,7 +17,7 @@ namespace GamePlay
         [SerializeField] private Boss boss;
 
         public event Action<GameState> StateChanged;
-        public GameState State { get; private set; } = GameState.Playing;
+        public GameState State { get; private set; } = GameState.Intro;//最初は登場演出から始まる
         /// <summary>経過秒数。Playing中だけ進む。</summary>
         public float ElapsedTime { get; private set; }
         /// <summary>
@@ -32,6 +32,8 @@ namespace GamePlay
 
         private const string BestTimeKey = "BestClearTime";
         private InputSystem_Actions inputActions;
+        private bool isPlayerIntroEnd;//Playerの登場演出が終わったか
+        private bool isBossIntroEnd;//Bossの登場演出が終わったか
 
         private void Awake()
         {
@@ -43,6 +45,8 @@ namespace GamePlay
             }
             player.GameOverEvent += OnGameOver;
             boss.GameClearEvent += OnGameClear;
+            player.IntroEndEvent += OnPlayerIntroEnd;
+            boss.IntroEndEvent += OnBossIntroEnd;
             inputActions = new InputSystem_Actions();
             inputActions.Player.Pause.performed += ctx => TogglePause();
             Time.timeScale = 1f;//タイトルへ戻る/リトライ後にtimeScaleが0のまま残らないように
@@ -102,6 +106,28 @@ namespace GamePlay
             SceneManager.LoadScene(resultSceneName);
         }
 
+        private void OnPlayerIntroEnd()
+        {
+            isPlayerIntroEnd = true;
+            TryStartPlaying();
+        }
+
+        private void OnBossIntroEnd()
+        {
+            isBossIntroEnd = true;
+            TryStartPlaying();
+        }
+
+        /// <summary>
+        /// PlayerとBossの登場演出が両方終わったら、Playingに移る
+        /// </summary>
+        private void TryStartPlaying()
+        {
+            if (State != GameState.Intro) return;
+            if (!isPlayerIntroEnd || !isBossIntroEnd) return;
+            ChangeState(GameState.Playing);
+        }
+
         private void OnGameClear()
         {
             SaveBestTime();
@@ -150,6 +176,8 @@ namespace GamePlay
             inputActions?.Dispose();
             if (player != null) player.GameOverEvent -= OnGameOver;
             if (boss != null) boss.GameClearEvent -= OnGameClear;
+            if (player != null) player.IntroEndEvent -= OnPlayerIntroEnd;
+            if (boss != null) boss.IntroEndEvent -= OnBossIntroEnd;
         }
     }
 }
