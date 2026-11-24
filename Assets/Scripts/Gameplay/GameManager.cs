@@ -7,15 +7,28 @@ namespace GamePlay
     /// <summary>
     /// ゲーム全体の進行を管理する<br/>
     /// 状態(Playing / Paused / Result)、クリアタイムの計測、ベストタイムの保存を担当する。<br/>
-    /// タイマーや保存もこのクラスにまとめている。
+    /// タイマーや保存もこのクラスにまとめている。<br/>
+    /// PlayerとBossの生成も担当する。UIなどがAwakeでPlayer/Bossを参照できるよう、他より先にAwakeを実行する。
     /// </summary>
+    [DefaultExecutionOrder(-100)]
     public class GameManager : MonoBehaviour
     {
-        [Header("状態の変化を受け取る対象")]
-        [SerializeField] private Player player;
-        [SerializeField] private Boss boss;
+        [Header("生成するPrefab")]
+        [SerializeField] private Player playerPrefab;
+        [SerializeField] private Boss bossPrefab;
+        [Tooltip("Playerの弾")]
+        [SerializeField] private Bullet playerBulletPrefab;
+        [SerializeField] private Bullet bombPrefab;
+        [SerializeField] private Bullet bossBulletPrefab;
+        [Header("生成する位置")]
+        [SerializeField] private Vector3 playerSpawnPosition = new Vector3(-7f, 0f, 0f);
+        [SerializeField] private Vector3 bossSpawnPosition = new Vector3(7f, 0f, 0f);
         [Header("シーン遷移を行うSceneChanger")]
         [SerializeField] private SceneChanger sceneChanger;
+        /// <summary>生成されたPlayer。UIなどが参照する(Awake以降に有効)</summary>
+        public Player Player { get; private set; }
+        /// <summary>生成されたBoss。UIなどが参照する(Awake以降に有効)</summary>
+        public Boss Boss { get; private set; }
         public event Action<GameState> StateChanged;
         public event Action<bool> OnPauseMenuShowRequested;//PauseUIに通知するためのイベント。boolはtrueで表示、falseで非表示
         public GameState State { get; private set; } = GameState.Intro;//最初は登場演出から始まる
@@ -36,18 +49,45 @@ namespace GamePlay
 
         private void Awake()
         {
-            if (player == null || boss == null || sceneChanger == null)
+            if (playerPrefab == null || bossPrefab == null || sceneChanger == null
+                || playerBulletPrefab == null || bombPrefab == null || bossBulletPrefab == null)
             {
-                Debug.LogError("Player・Boss・SceneChangerのどれかがアタッチされていません。");
+                Debug.LogError("Prefab・SceneChangerのどれかがアタッチされていません。");
                 enabled = false;
                 return;
             }
-            player.GameOverEvent += OnGameOver;
-            boss.GameClearEvent += OnGameClear;
-            player.IntroEndEvent += OnPlayerIntroEnd;
-            boss.IntroEndEvent += OnBossIntroEnd;
-            player.OnPausePressed += TogglePause;
+            SpawnCharacters();
+            Player.GameOverEvent += OnGameOver;
+            Boss.GameClearEvent += OnGameClear;
+            Player.IntroEndEvent += OnPlayerIntroEnd;
+            Boss.IntroEndEvent += OnBossIntroEnd;
+            Player.OnPausePressed += TogglePause;
             Time.timeScale = 1f;//タイトルへ戻る/リトライ後にtimeScaleが0のまま残らないように
+        }
+
+        /// <summary>
+        /// PlayerとBossを生成して、弾のプールなどの依存を渡す<br/>
+        /// Boss自身のAwakeで初期位置を使うため、位置を指定して生成する。
+        /// </summary>
+        private void SpawnCharacters()
+        {
+            BulletPool playerBulletPool = CreatePool("PlayerBulletPool", playerBulletPrefab);
+            BulletPool bombPool = CreatePool("BombPool", bombPrefab);
+            BulletPool bossBulletPool = CreatePool("BossBulletPool", bossBulletPrefab);
+
+            Player = Instantiate(playerPrefab, playerSpawnPosition, Quaternion.identity);
+            Player.Init(this, playerBulletPool, bombPool);
+            Boss = Instantiate(bossPrefab, bossSpawnPosition, Quaternion.identity);
+            Boss.Init(this, bossBulletPool, Player);
+        }
+
+        /// <summary>このオブジェクトの子に、弾のプールを作る</summary>
+        private BulletPool CreatePool(string poolName, Bullet bulletPrefab)
+        {
+            BulletPool pool = new GameObject(poolName).AddComponent<BulletPool>();
+            pool.transform.SetParent(transform);
+            pool.Init(bulletPrefab);
+            return pool;
         }
 
         private void Update()
@@ -162,11 +202,17 @@ namespace GamePlay
 
         private void OnDestroy()
         {
-            if (player != null) player.OnPausePressed -= TogglePause;
-            if (player != null) player.GameOverEvent -= OnGameOver;
-            if (boss != null) boss.GameClearEvent -= OnGameClear;
-            if (player != null) player.IntroEndEvent -= OnPlayerIntroEnd;
-            if (boss != null) boss.IntroEndEvent -= OnBossIntroEnd;
+            if (Player != null)
+            {
+                Player.OnPausePressed -= TogglePause;
+                Player.GameOverEvent -= OnGameOver;
+                Player.IntroEndEvent -= OnPlayerIntroEnd;
+            }
+            if (Boss != null)
+            {
+                Boss.GameClearEvent -= OnGameClear;
+                Boss.IntroEndEvent -= OnBossIntroEnd;
+            }
         }
     }
 }

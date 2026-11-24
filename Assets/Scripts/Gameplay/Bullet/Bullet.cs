@@ -23,6 +23,7 @@ namespace GamePlay
         public abstract void Move();
         public void Return()
         {
+            if (!gameObject.activeSelf) return;
             owner.Release(this);
         }
 

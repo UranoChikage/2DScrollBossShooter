@@ -11,10 +11,8 @@ namespace GameUI
     /// </summary>
     public class InGameUI : MonoBehaviour
     {
-        [Header("状態を読み取る対象")]
+        [Header("状態を読み取る対象(PlayerとBossはGameManagerが生成したものを使う)")]
         [SerializeField] private GameManager gameManager;
-        [SerializeField] private Player player;
-        [SerializeField] private Boss boss;
 
         [Header("Bossの体力ゲージ(段階ごとに1本。ImageTypeはFilled)")]
         [Tooltip("第一段階(100%〜第二段階の割合)のゲージ")]
@@ -32,11 +30,14 @@ namespace GameUI
         [SerializeField] private Text timeText;
         [SerializeField] private Text bestTimeText;
 
+        private Player player;
+        private Boss boss;
+
         private void Awake()
         {
-            if (gameManager == null || player == null || boss == null)
+            if (gameManager == null)
             {
-                Debug.LogError("GameManager・Player・Bossのどれかがアタッチされていません。");
+                Debug.LogError("GameManagerがアタッチされていません。");
                 enabled = false;
                 return;
             }
@@ -55,6 +56,15 @@ namespace GameUI
             if (timeText == null || bestTimeText == null)
             {
                 Debug.LogError("タイムのTextがアタッチされていません。");
+                enabled = false;
+                return;
+            }
+            //GameManagerは先にAwakeを実行して、PlayerとBossを生成済み
+            player = gameManager.Player;
+            boss = gameManager.Boss;
+            if (player == null || boss == null)
+            {
+                Debug.LogError("PlayerまたはBossが生成されていません。");
                 enabled = false;
                 return;
             }

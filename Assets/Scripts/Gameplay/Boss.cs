@@ -21,9 +21,6 @@ namespace GamePlay
         [Tooltip("Playerに接触したときに与えるダメージ")]
         [SerializeField] private int contactDamage = 1;
 
-        [Header("ゲーム全体の状態を持つGameManager")]
-        [SerializeField] private GameManager gameManager;
-
         [Header("上下移動")]
         [Tooltip("上下移動の速さ")]
         [SerializeField] private float moveSpeed = 1.5f;
@@ -41,11 +38,6 @@ namespace GamePlay
         [SerializeField] private float swaySpeed = 1f;
         [Tooltip("段階が変わったとき、速さと揺れ幅が新しい値に近づく速さ(急に位置が飛ばないようにする)")]
         [SerializeField] private float moveChangeRate = 2f;
-
-        [Header("弾")]
-        [SerializeField] private BulletPool bulletPool;
-        [Tooltip("狙う対象(Player)")]
-        [SerializeField] private Transform target;
 
         [Header("弾幕の種類ごとの弾のSprite")]
         [SerializeField] private Sprite linearSprite;
@@ -118,7 +110,12 @@ namespace GamePlay
         private float fanTimer;
         private float homingTimer;
         private bool isFanOdd = true;//扇形は奇数個と偶数個を交互に撃つ
-        private Player targetPlayer;//targetのPlayer(撃墜・復活中かを見るため)
+
+        //Initで受け取る依存(Prefab化してもシーンの参照を持てないため)
+        private GameManager gameManager;
+        private BulletPool bulletPool;
+        private Player targetPlayer;//狙う対象(撃墜・復活中かも見る)
+        private Transform target;//targetPlayerのTransform
         private Color currentPhaseColor = Color.white;//今の段階の色(被弾の点滅から戻す色)
         private Coroutine hitFlashCoroutine;//点滅中かの判断と、連続被弾時の点滅のやり直しに使う
 
@@ -139,12 +136,20 @@ namespace GamePlay
             if (currentHealth <= 0) GameClearEvent?.Invoke();
         }
 
+        /// <summary>
+        /// 生成した直後にGameManagerから呼ばれて、外部の依存を受け取る<br/>
+        /// Awakeは生成時に走るので、InitはInstantiateの直後(最初のUpdateより前)に呼ぶこと。
+        /// </summary>
+        public void Init(GameManager gm, BulletPool bullets, Player targetPlayer)
+        {
+            gameManager = gm;
+            bulletPool = bullets;
+            this.targetPlayer = targetPlayer;
+            target = targetPlayer != null ? targetPlayer.transform : null;
+        }
+
         private void Awake()
         {
-            if (gameManager == null) Debug.LogError("GameManagerがアタッチされていません。");
-            if (bulletPool == null) Debug.LogError("BulletPoolがアタッチされていません。");
-            if (target == null) Debug.LogError("狙う対象(Player)がアタッチされていません。");
-            else target.TryGetComponent(out targetPlayer);
             if (spriteRenderer == null) Debug.LogError("SpriteRendererがアタッチされていません。");
             if (animator == null || defeatClip == null) Debug.LogError("撃破用のAnimatorまたはAnimationClipがアタッチされていません。");
             if (bossCollider == null)
@@ -175,7 +180,17 @@ namespace GamePlay
             FireUpdate();
         }
 
-        private void Start() => StartCoroutine(IntroRoutine());
+        private void Start()
+        {
+            //Initで依存が渡されていないと、IsPlayingが常にfalseになり何も起きないので、ここで気づけるようにする
+            if (gameManager == null || bulletPool == null || target == null)
+            {
+                Debug.LogError("Init()が呼ばれていません。GameManagerから生成してください。");
+                enabled = false;
+                return;
+            }
+            StartCoroutine(IntroRoutine());
+        }
 
         /// <summary>
         /// 登場演出を流して、終わったらIntroEndEventで伝える<br/>

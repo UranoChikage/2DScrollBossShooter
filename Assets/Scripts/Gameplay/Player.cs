@@ -21,11 +21,6 @@ namespace GamePlay
         [SerializeField] private float coolTimeDuration = 0.5f;
         [Tooltip("爆弾の数")]
         [SerializeField] private int bombCount = 3;
-        [Header("ゲーム全体の状態を持つGameManager")]
-        [SerializeField] private GameManager gameManager;
-        [Header("Playerの弾/爆弾を生成するBulletPool")]
-        [SerializeField] private BulletPool bulletPool;
-        [SerializeField] private BulletPool bombPool;
 
         [Header("撃墜・復活のAnimation")]
         [Tooltip("PlayerShotDown / PlayerRespawn / Fly のStateを持つAnimator")]
@@ -58,6 +53,12 @@ namespace GamePlay
         [SerializeField] private Color hitBlinkColor = Color.red;
         [Tooltip("復活後の無敵中の点滅の色(半透明にすると消えかけて見える)")]
         [SerializeField] private Color invincibleBlinkColor = new Color(1f, 1f, 1f, 0.3f);
+
+        //Initで受け取る依存(Prefab化してもシーンの参照を持てないため)
+        private GameManager gameManager;
+        private BulletPool bulletPool;
+        private BulletPool bombPool;
+
         public event Action GameOverEvent;
         /// <summary>登場演出が終わったことをGameManagerに伝える</summary>
         public event Action IntroEndEvent;
@@ -100,6 +101,17 @@ namespace GamePlay
         public event Action<int> OnBombCountChanged;
         public bool OnCrouched { get; private set; }
         //=========================================
+        /// <summary>
+        /// 生成した直後にGameManagerから呼ばれて、外部の依存を受け取る<br/>
+        /// Awakeは生成時に走るので、InitはInstantiateの直後(最初のUpdateより前)に呼ぶこと。
+        /// </summary>
+        public void Init(GameManager gm, BulletPool bullets, BulletPool bombs)
+        {
+            gameManager = gm;
+            bulletPool = bullets;
+            bombPool = bombs;
+        }
+
         public void TakeDamage(int damage)
         {
             //撃墜・復活Anim中と無敵中はダメージを受けない。
@@ -109,10 +121,8 @@ namespace GamePlay
             if (IsGameOver()) StartCoroutine(GameOverRoutine());
             else StartCoroutine(DownAndRespawnRoutine());
         }
-
         private void Awake()
         {
-            if (gameManager == null) Debug.LogError("GameManagerがアタッチされていません。");
             if (animator == null) Debug.LogError("Animatorがアタッチされていません。");
             if (downClip == null || respawnClip == null) Debug.LogError("撃墜/復活のAnimationClipがアタッチされていません。");
             if (spriteRenderer == null) Debug.LogError("SpriteRendererがアタッチされていません。");
@@ -124,7 +134,17 @@ namespace GamePlay
             GameOverEvent += StopGame;
         }
 
-        private void Start() => StartCoroutine(IntroRoutine());
+        private void Start()
+        {
+            //Initで依存が渡されていないと、IsPlayingが常にfalseになり何も起きないので、ここで気づけるようにする
+            if (gameManager == null || bulletPool == null || bombPool == null)
+            {
+                Debug.LogError("Init()が呼ばれていません。GameManagerから生成してください。");
+                enabled = false;
+                return;
+            }
+            StartCoroutine(IntroRoutine());
+        }
 
         /// <summary>
         /// 登場演出を流して、終わったらIntroEndEventで伝える<br/>
