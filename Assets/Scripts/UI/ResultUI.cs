@@ -1,14 +1,14 @@
 using Core;
 using GamePlay;
 using GamePlay.Input;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 namespace GameUI
 {
     /// <summary>
     /// リザルト画面を担当する<br/>
-    /// 今回のタイム、ベストタイム、過去のベスト5を表示して、リトライ/タイトルへの操作を受け付ける。<br/>
+    /// 今回のタイムを表示して、リトライ/タイトルへの操作を受け付ける。<br/>
+    /// ベストタイムと過去のベスト5は、RecordBoardが表示するので注意。<br/>
     /// ボタンのクリックとショートカット(Menuマップ)のどちらでも、同じ処理が呼ばれる。<br/>
     /// 操作のヒントは、ボタンのTextに付けたDeviceHintTextが切り替える。
     /// </summary>
@@ -18,12 +18,8 @@ namespace GameUI
         [SerializeField] private SceneChanger sceneChanger;
 
         [Header("タイム")]
-        [Tooltip("今回のタイム")]
+        [Tooltip("今回のタイム。ベストタイムとベスト5はRecordBoardが表示する")]
         [SerializeField] private Text timeText;
-        [SerializeField] private Text bestTimeText;
-
-        [Header("過去のベスト5(1位から順に)")]
-        [SerializeField] private Text[] rankingTexts;
 
         [Header("シーン名(Build Settingsに登録しておく)")]
         [SerializeField] private string inGameScene = "InGame";
@@ -39,9 +35,9 @@ namespace GameUI
                 enabled = false;
                 return;
             }
-            if (timeText == null || bestTimeText == null || rankingTexts == null)
+            if (timeText == null)
             {
-                Debug.LogError("タイムのTextがアタッチされていません。");
+                Debug.LogError("今回のタイムのTextがアタッチされていません。");
                 enabled = false;
                 return;
             }
@@ -50,28 +46,7 @@ namespace GameUI
             inputActions.Menu.Retry.performed += ctx => OnRetryButtonClicked();
         }
 
-        private void Start()
-        {
-            timeText.text = TimeFormatter.Format(GameManager.LastElapsedTime);
-            ShowRecords();
-        }
-
-        /// <summary>
-        /// ベストタイムと過去のベスト5を表示する<br/>
-        /// 記録が5件に満たない順位は、空の表記にする。
-        /// </summary>
-        private void ShowRecords()
-        {
-            List<float> times = ClearRecords.GetTopTimes();
-            bestTimeText.text = times.Count > 0 ? TimeFormatter.Format(times[0]) : TimeFormatter.Empty;
-
-            for (int i = 0; i < rankingTexts.Length; i++)
-            {
-                if (rankingTexts[i] == null) continue;
-                string time = i < times.Count ? TimeFormatter.Format(times[i]) : TimeFormatter.Empty;
-                rankingTexts[i].text = $"{i + 1}. {time}";
-            }
-        }
+        private void Start() => timeText.text = TimeFormatter.Format(GameManager.LastElapsedTime);
 
         public void OnRetryButtonClicked()
         {

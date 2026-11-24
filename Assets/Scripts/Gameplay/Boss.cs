@@ -30,6 +30,18 @@ namespace GamePlay
         [Tooltip("初期位置から上下に動く幅")]
         [SerializeField] private float moveRange = 4f;
 
+        [Header("段階ごとの動きの変化(第一段階は上の値のまま)")]
+        [Tooltip("第二段階の上下移動の速さの倍率(第一段階の速さに対して)")]
+        [SerializeField] private float fanSpeedScale = 1.5f;
+        [Tooltip("第三段階の上下移動の速さの倍率(第一段階の速さに対して)")]
+        [SerializeField] private float homingSpeedScale = 2f;
+        [Tooltip("第三段階で、初期位置から前後(左右)に揺れる幅。0なら揺れない")]
+        [SerializeField] private float homingSwayRange = 1f;
+        [Tooltip("前後(左右)に揺れる速さ")]
+        [SerializeField] private float swaySpeed = 1f;
+        [Tooltip("段階が変わったとき、速さと揺れ幅が新しい値に近づく速さ(急に位置が飛ばないようにする)")]
+        [SerializeField] private float moveChangeRate = 2f;
+
         [Header("弾")]
         [SerializeField] private BulletPool bulletPool;
         [Tooltip("狙う対象(Player)")]
@@ -96,8 +108,12 @@ namespace GamePlay
         public float ThirdPhaseRatio => thirdPhaseHealth / 100f;
 
         private int currentHealth;
+        private float startX;
         private float startY;
-        private float moveTimer;//上下移動の経過時間
+        private float moveAngle;//上下移動の角度。速さが変わっても位置が飛ばないよう、時間ではなく角度を積み上げる
+        private float swayAngle;//前後の揺れの角度
+        private float currentMoveSpeed;//今の上下移動の速さ(段階に合わせて目標の値に近づく)
+        private float currentSway;//今の前後の揺れ幅(段階に合わせて目標の値に近づく)
         private float linearTimer;
         private float fanTimer;
         private float homingTimer;
@@ -140,7 +156,9 @@ namespace GamePlay
             }
 
             currentHealth = maxHealth;
+            startX = transform.position.x;
             startY = transform.position.y;
+            currentMoveSpeed = moveSpeed;
             linearTimer = linearInterval;//最初の1発はすぐ撃つ
             if (animator != null) animator.enabled = false;//演出のときだけ有効にする
             ApplyPhaseColor();
@@ -150,7 +168,7 @@ namespace GamePlay
         private void Update()
         {
             if (!IsPlaying) return;
-            MoveVertical();
+            Move();
             //Playerの撃墜・復活Animation中は弾を撃たない(タイマーも進めないので、復活後に溜まった分が一斉に出ることもない)
             if (targetPlayer != null && targetPlayer.State != PlayerState.Alive) return;
             FireUpdate();
@@ -177,11 +195,40 @@ namespace GamePlay
             IntroEndEvent?.Invoke();
         }
 
-        private void MoveVertical()
+        /// <summary>
+        /// 段階に応じた速さ・揺れ幅で動く<br/>
+        /// 第一段階 : 上下のみ、第二段階 : 上下が速くなる、第三段階 : さらに速くなり前後にも揺れる。<br/>
+        /// 段階が変わったときは、速さと揺れ幅を目標の値へ少しずつ近づけて、動きが急に変わらないようにする。
+        /// </summary>
+        private void Move()
         {
-            moveTimer += Time.deltaTime;
+            float targetSpeed;
+            float targetSway;
+            switch (State)
+            {
+                case BossState.FanShapePhase:
+                    targetSpeed = moveSpeed * fanSpeedScale;
+                    targetSway = 0f;
+                    break;
+                case BossState.HomingPhase:
+                    targetSpeed = moveSpeed * homingSpeedScale;
+                    targetSway = homingSwayRange;
+                    break;
+                default:
+                    targetSpeed = moveSpeed;
+                    targetSway = 0f;
+                    break;
+            }
+
+            float step = moveChangeRate * Time.deltaTime;
+            currentMoveSpeed = Mathf.MoveTowards(currentMoveSpeed, targetSpeed, step);
+            currentSway = Mathf.MoveTowards(currentSway, targetSway, step);
+
+            moveAngle += currentMoveSpeed * Time.deltaTime;
+            swayAngle += swaySpeed * Time.deltaTime;
             Vector3 pos = transform.position;
-            pos.y = startY + Mathf.Sin(moveTimer * moveSpeed) * moveRange;
+            pos.y = startY + Mathf.Sin(moveAngle) * moveRange;
+            pos.x = startX + Mathf.Sin(swayAngle) * currentSway;
             transform.position = pos;
         }
 

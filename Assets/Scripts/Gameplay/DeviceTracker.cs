@@ -21,8 +21,7 @@ namespace GamePlay
         private static IDisposable anyButtonSubscription;//onAnyButtonPressの購読解除用
 
         /// <summary>
-        /// 入力の監視を始める<br/>
-        /// Domain Reloadを切っている場合に前回の購読やイベントが残らないよう、最初に全部やり直す。
+        /// 入力の監視を始める
         /// </summary>
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
         private static void Initialize()
@@ -45,13 +44,15 @@ namespace GamePlay
         private static void OnAnyButtonPressed(InputControl control) => UpdateLastDevice(control.device);
 
         /// <summary>
-        /// Actionが実行されたときの、そのActionを動かしているデバイスを記録する<br/>
-        /// スティックの移動のようにボタンではない入力も、これで拾える。
+        /// Actionが実行されたときに、ゲームパッドのスティックの入力だけを記録する<br/>
+        /// スティックはボタンではないので、onAnyButtonPressでは拾えない。<br/>
+        /// マウスはここで見ない。EventSystemのUIのActionも通知されるので、
+        /// マウスを動かすだけでKeyboardに切り替わってしまうため。マウスはクリックだけで判断する。
         /// </summary>
         private static void OnActionChange(object obj, InputActionChange change)
         {
             if (change != InputActionChange.ActionPerformed) return;
-            if (obj is InputAction action) UpdateLastDevice(action.activeControl?.device);
+            if (obj is InputAction action && action.activeControl?.device is Gamepad) UpdateLastDevice(action.activeControl.device);
         }
 
         private static void UpdateLastDevice(InputDevice device)
