@@ -1,4 +1,4 @@
-using GamePlay.Input;
+using Core;
 using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -15,8 +15,8 @@ namespace GamePlay
         [Header("状態の変化を受け取る対象")]
         [SerializeField] private Player player;
         [SerializeField] private Boss boss;
-
         public event Action<GameState> StateChanged;
+        public event Action<Device, bool> OnPauseMenuShowRequested;//PauseUIに通知するためのイベント。boolはtrueで表示、falseで非表示
         public GameState State { get; private set; } = GameState.Intro;//最初は登場演出から始まる
         /// <summary>経過秒数。Playing中だけ進む。</summary>
         public float ElapsedTime { get; private set; }
@@ -31,7 +31,6 @@ namespace GamePlay
         [SerializeField] private string resultSceneName = "Result";
 
         private const string BestTimeKey = "BestClearTime";
-        private InputSystem_Actions inputActions;
         private bool isPlayerIntroEnd;//Playerの登場演出が終わったか
         private bool isBossIntroEnd;//Bossの登場演出が終わったか
 
@@ -47,8 +46,7 @@ namespace GamePlay
             boss.GameClearEvent += OnGameClear;
             player.IntroEndEvent += OnPlayerIntroEnd;
             boss.IntroEndEvent += OnBossIntroEnd;
-            inputActions = new InputSystem_Actions();
-            inputActions.Player.Pause.performed += ctx => TogglePause();
+            player.OnPausePressed += TogglePause;
             Time.timeScale = 1f;//タイトルへ戻る/リトライ後にtimeScaleが0のまま残らないように
         }
 
@@ -74,6 +72,7 @@ namespace GamePlay
             if (State != GameState.Playing) return;
             Time.timeScale = 0f;
             ChangeState(GameState.Paused);
+            OnPauseMenuShowRequested?.Invoke(player.LastDevice, true);
         }
 
         /// <summary>Paused中のみ再開する</summary>
@@ -82,6 +81,7 @@ namespace GamePlay
             if (State != GameState.Paused) return;
             Time.timeScale = 1f;
             ChangeState(GameState.Playing);
+            OnPauseMenuShowRequested?.Invoke(player.LastDevice, false);
         }
 
         /// <summary>
@@ -168,12 +168,9 @@ namespace GamePlay
             StateChanged?.Invoke(State);
         }
 
-        private void OnEnable() => inputActions?.Enable();
-        private void OnDisable() => inputActions?.Disable();
-
         private void OnDestroy()
         {
-            inputActions?.Dispose();
+            if (player != null) player.OnPausePressed -= TogglePause;
             if (player != null) player.GameOverEvent -= OnGameOver;
             if (boss != null) boss.GameClearEvent -= OnGameClear;
             if (player != null) player.IntroEndEvent -= OnPlayerIntroEnd;

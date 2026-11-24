@@ -87,6 +87,7 @@ namespace GamePlay
         public bool FireHeld { get; private set; }
         public Device LastDevice { get; private set; }
         public event Action OnBombPressed;
+        public event Action OnPausePressed;//GameManagerがポーズの切り替えに使う
         public bool OnCrouched { get; private set; }
         //=========================================
         public void TakeDamage(int damage)
@@ -317,6 +318,7 @@ namespace GamePlay
             inputActions.Player.Crouch.performed += ctx => OnCrouched = true;
             inputActions.Player.Crouch.canceled += ctx => OnCrouched = false;
             inputActions.Player.Bomb.performed += ctx => OnBombPressed?.Invoke();
+            inputActions.Player.Pause.performed += ctx => OnPausePressed?.Invoke();
         }
         private void OnEnable()
         {

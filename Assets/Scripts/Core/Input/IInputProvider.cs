@@ -4,7 +4,7 @@ using UnityEngine;
 namespace Core
 {
     /// <summary>
-    /// Move, Fireheld, OnBombPressed, OnCrouchedを提供するインターフェース
+    /// Move, Fireheld, OnBombPressed, OnPausePressed, OnCrouchedを提供するインターフェース
     /// InputActionの値をこのインターフェースに、読み込む側はこのインターフェースを通して値を取得する
     /// </summary>
     public interface IInputProvider
@@ -13,6 +13,7 @@ namespace Core
         bool FireHeld { get; }
         bool OnCrouched { get; }//しゃがんだタイミングで呼ばれる。
         event Action OnBombPressed;
+        event Action OnPausePressed;
         Device LastDevice { get; }
     }
 }
