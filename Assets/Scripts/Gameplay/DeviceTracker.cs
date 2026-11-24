@@ -18,6 +18,9 @@ namespace GamePlay
         /// <summary>LastDeviceが切り替わったときに呼ばれる</summary>
         public static event Action<Device> OnDeviceChanged;
 
+        /// <summary>スティックをこれ以上倒したときだけ、ゲームパッドに切り替える(0〜1)</summary>
+        private const float StickThreshold = 0.4f;
+
         private static IDisposable anyButtonSubscription;//onAnyButtonPressの購読解除用
 
         /// <summary>
@@ -52,7 +55,13 @@ namespace GamePlay
         private static void OnActionChange(object obj, InputActionChange change)
         {
             if (change != InputActionChange.ActionPerformed) return;
-            if (obj is InputAction action && action.activeControl?.device is Gamepad) UpdateLastDevice(action.activeControl.device);
+            if (!(obj is InputAction action)) return;
+
+            InputControl control = action.activeControl;
+            if (control == null || !(control.device is Gamepad)) return;
+            //Input Systemの既定のデッドゾーンを超えていても、ドリフトで微妙にずれているだけのスティックは無視する
+            if (control.EvaluateMagnitude() < StickThreshold) return;
+            UpdateLastDevice(control.device);
         }
 
         private static void UpdateLastDevice(InputDevice device)

@@ -1,0 +1,84 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0efe41788f45d084eb00a71ca85ad662, type: 3}
+  m_Name: AudioLibrary
+  m_EditorClassIdentifier: Core::Core.AudioLibrary
+  playerShot:
+    clips:
+    - {fileID: 8300000, guid: 7ac019d279abe0b4ca953e93ea89cfa6, type: 3}
+    volume: 0.5
+    pitchRange: {x: 0.95, y: 1.05}
+    minInterval: 0.05
+  playerBomb:
+    clips:
+    - {fileID: 8300000, guid: 11baf8569abc96442a3d4033b9a4c730, type: 3}
+    volume: 1
+    pitchRange: {x: 0.95, y: 1.05}
+    minInterval: 0.03
+  playerDown:
+    clips:
+    - {fileID: 8300000, guid: 0a6bcef518d2a3f4f934a5cb6a705858, type: 3}
+    volume: 1
+    pitchRange: {x: 1, y: 1}
+    minInterval: 0.03
+  playerRespawn:
+    clips:
+    - {fileID: 8300000, guid: c3b24a1baeb52ec49b62b33e1eaa4c66, type: 3}
+    volume: 1
+    pitchRange: {x: 0.95, y: 1.05}
+    minInterval: 0.03
+  bossHit:
+    clips:
+    - {fileID: 8300000, guid: d7685f62e5ccc5b47964249dec024298, type: 3}
+    volume: 0.5
+    pitchRange: {x: 0.95, y: 1.05}
+    minInterval: 0.05
+  bossPhaseUp:
+    clips:
+    - {fileID: 8300000, guid: 99d924144f98d0d4b838217766dbceb4, type: 3}
+    volume: 1
+    pitchRange: {x: 0.95, y: 1.05}
+    minInterval: 0.03
+  bossShot:
+    clips:
+    - {fileID: 8300000, guid: a4123d76e55b0ca4494354fb6a9c7eee, type: 3}
+    volume: 1
+    pitchRange: {x: 0.95, y: 1.05}
+    minInterval: 0.05
+  bossDefeat:
+    clips:
+    - {fileID: 8300000, guid: 11d0bca1213f7414eaa8356042844f6b, type: 3}
+    volume: 1
+    pitchRange: {x: 0.95, y: 1.05}
+    minInterval: 0.03
+  gameOver:
+    clips: []
+    volume: 1
+    pitchRange: {x: 0.95, y: 1.05}
+    minInterval: 0.03
+  gameClear:
+    clips: []
+    volume: 1
+    pitchRange: {x: 0.95, y: 1.05}
+    minInterval: 0.03
+  pause:
+    clips:
+    - {fileID: 8300000, guid: 3ae93e7eb63d4194aa62baf3b377f71a, type: 3}
+    volume: 1
+    pitchRange: {x: 0.95, y: 1.05}
+    minInterval: 0.03
+  uiConfirm:
+    clips:
+    - {fileID: 8300000, guid: 8ea2dca5b4c616746bd327e2c1200a20, type: 3}
+    volume: 1
+    pitchRange: {x: 0.95, y: 1.05}
+    minInterval: 0.03
