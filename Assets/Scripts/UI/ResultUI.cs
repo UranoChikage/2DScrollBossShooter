@@ -50,11 +50,13 @@ namespace GameUI
 
         public void OnRetryButtonClicked()
         {
+            AudioManager.Play(Sfx.UiConfirm);
             sceneChanger.LoadScene(inGameScene);
         }
 
         public void OnToTitleButtonClicked()
         {
+            AudioManager.Play(Sfx.UiConfirm);
             sceneChanger.LoadScene(titleScene);
         }
 

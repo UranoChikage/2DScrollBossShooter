@@ -188,6 +188,7 @@ namespace GamePlay
         private void Fire()
         {
             isCoolTime = true;
+            AudioManager.Play(Sfx.PlayerShot);
             bulletPool?.Get(transform.position);
         }
         private void Bomb()
@@ -195,6 +196,7 @@ namespace GamePlay
             if (!IsPlaying || State != PlayerState.Alive || bombCount <= 0) return;//ポーズ中・撃墜/復活中はボムも使えない
             bombCount--;
             OnBombCountChanged?.Invoke(bombCount);
+            AudioManager.Play(Sfx.PlayerBomb);
             bombPool?.Get(transform.position);
         }
         /// <summary>
@@ -224,6 +226,7 @@ namespace GamePlay
         private IEnumerator DownAndRespawnRoutine()
         {
             State = PlayerState.Downed;
+            AudioManager.Play(Sfx.PlayerDown);
             PlayAnimation(DownStateName);
             if (downClip != null)
             {
@@ -233,6 +236,7 @@ namespace GamePlay
 
             //撃墜された位置から復活する(位置は動かさない)
             State = PlayerState.Respawning;
+            AudioManager.Play(Sfx.PlayerRespawn);
             PlayAnimation(RespawnStateName);
             if (respawnClip != null) yield return new WaitForSeconds(respawnClip.length);
 
@@ -247,6 +251,7 @@ namespace GamePlay
         private IEnumerator GameOverRoutine()
         {
             State = PlayerState.Downed;
+            AudioManager.Play(Sfx.PlayerDown);
             PlayAnimation(DownStateName);
             if (downClip != null)
             {

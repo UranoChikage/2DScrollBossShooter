@@ -34,6 +34,7 @@ namespace GameUI
 
         public void OnStartButtonClicked()
         {
+            AudioManager.Play(Sfx.UiConfirm);
             sceneChanger.LoadScene(inGameScene);
         }
 

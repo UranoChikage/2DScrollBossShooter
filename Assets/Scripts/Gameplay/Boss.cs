@@ -132,6 +132,7 @@ namespace GamePlay
         {
             if (!IsPlaying) return;
             currentHealth -= damage;
+            AudioManager.Play(Sfx.BossHit);
             UpdateState();
             OnHealthChanged?.Invoke(HealthRatio);
             HitFlash();
@@ -269,6 +270,7 @@ namespace GamePlay
         //初期状態 : Playerに向かって一直線
         private void FireLinear()
         {
+            AudioManager.Play(Sfx.BossShot);
             BossBullet bullet = SpawnBullet(linearSprite);
             bullet?.Launch(DirectionToTarget());
         }
@@ -276,6 +278,7 @@ namespace GamePlay
         //1段階目 : 前方(左)に奇数個・偶数個を交互に扇形で撃つ
         private void FireFan()
         {
+            AudioManager.Play(Sfx.BossShot);//何発撃っても1回だけ鳴らす
             int count = isFanOdd ? fanOddCount : fanEvenCount;
             isFanOdd = !isFanOdd;
 
@@ -292,6 +295,7 @@ namespace GamePlay
         //2段階目 : Playerに向かうホーミング弾
         private void FireHoming()
         {
+            AudioManager.Play(Sfx.BossShot);
             BossBullet bullet = SpawnBullet(homingSprite);
             bullet?.LaunchHoming(DirectionToTarget(), target);
         }
@@ -325,6 +329,7 @@ namespace GamePlay
             else next = BossState.LinearPhase;//初期状態 : Playerに向かって一直線
 
             if (next == State) return;
+            if (next > State) AudioManager.Play(Sfx.BossPhaseUp);
             State = next;
             ApplyPhaseColor();
             Debug.Log($"Bossが{State}に移行しました。");
@@ -386,6 +391,7 @@ namespace GamePlay
         private void StopGame()
         {
             Debug.Log("Game Clear");
+            AudioManager.Play(Sfx.BossDefeat);
             StartCoroutine(DefeatRoutine());
             //TODO : 画面上の弾を消す処理を追加する
         }

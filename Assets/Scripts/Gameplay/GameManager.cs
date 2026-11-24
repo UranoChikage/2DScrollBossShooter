@@ -71,6 +71,7 @@ namespace GamePlay
         {
             if (State != GameState.Playing || sceneChanger.IsLoading) return;
             Time.timeScale = 0f;
+            AudioManager.Play(Sfx.Pause);
             ChangeState(GameState.Paused);
             OnPauseMenuShowRequested?.Invoke(true);
         }
@@ -83,6 +84,7 @@ namespace GamePlay
         {
             if (State != GameState.Paused || sceneChanger.IsLoading) return;
             Time.timeScale = 1f;
+            AudioManager.Play(Sfx.Pause);
             ChangeState(GameState.Playing);
             OnPauseMenuShowRequested?.Invoke(false);
         }
@@ -130,11 +132,13 @@ namespace GamePlay
         private void OnGameClear()
         {
             ClearRecords.Add(ElapsedTime);//ベスト5に入るなら保存される
+            AudioManager.Play(Sfx.GameClear);
             EndGame(true);
         }
 
         private void OnGameOver()
         {
+            AudioManager.Play(Sfx.GameOver);
             EndGame(false);
         }
 
