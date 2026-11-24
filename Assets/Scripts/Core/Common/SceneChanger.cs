@@ -65,6 +65,7 @@ namespace Core
         private IEnumerator LoadRoutine(string sceneName)
         {
             yield return Fade(fadeGroup.alpha, 1f, fadeOutDuration);
+            Time.timeScale = 1f;
             SceneManager.LoadScene(sceneName);
         }
 
