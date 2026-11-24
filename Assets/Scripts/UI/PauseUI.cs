@@ -2,8 +2,6 @@ using Core;
 using GamePlay;
 using GamePlay.Input;
 using UnityEngine;
-using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 namespace GameUI
 {
     /// <summary>
@@ -15,25 +13,25 @@ namespace GameUI
     {
 
         [SerializeField] private GameManager gameManager;
+        [Header("シーン遷移を行うSceneChanger")]
+        [SerializeField] private SceneChanger sceneChanger;
         [Header("PauseメニューのUI")]
-        [SerializeField] private GameObject menu;//Menu全体の親
-        [SerializeField] private Text toTitle;//デバイスによってヒントを切り替える
-        [SerializeField] private Text retry;//デバイスによってヒントを切り替える
+        [SerializeField] private GameObject menu;//Menu全体の親。ヒントはDeviceHintTextが切り替える
 
         [SerializeField] private string inGameScene = "InGame";
         [SerializeField] private string titleScene = "Title";
         private InputSystem_Actions inputActions;
         private void Awake()
         {
-            if (menu == null || toTitle == null || retry == null)
+            if (menu == null)
             {
-                Debug.LogError("メニューまたはTextがアタッチされていません。");
+                Debug.LogError("メニューがアタッチされていません。");
                 enabled = false;
                 return;
             }
-            if (gameManager == null)
+            if (gameManager == null || sceneChanger == null)
             {
-                Debug.LogError("GameManagerがアタッチされていません。");
+                Debug.LogError("GameManagerまたはSceneChangerがアタッチされていません。");
                 enabled = false;
                 return;
             }
@@ -43,27 +41,15 @@ namespace GameUI
             gameManager.OnPauseMenuShowRequested += TogglePause;
             HidePauseMenu();
         }
-        private void TogglePause(Device device, bool show)
+        private void TogglePause(bool show)
         {
             if (!show) HidePauseMenu();
-            else ShowPauseMenu(device);
+            else ShowPauseMenu();
         }
-        private void ShowPauseMenu(Device device)
+        private void ShowPauseMenu()
         {
             inputActions.Menu.Enable();
             menu.SetActive(true);
-            switch (device)
-            {
-                case Device.Keyboard:
-                    toTitle.text = "タイトルへ(T)";
-                    retry.text = "再挑戦(R)";
-                    break;
-                case Device.Gamepad:
-                    //今回はXboxの表記にしている
-                    toTitle.text = "タイトルへ(Y)";
-                    retry.text = "再挑戦(X)";
-                    break;
-            }
         }
 
         private void HidePauseMenu()
@@ -73,11 +59,11 @@ namespace GameUI
         }
         public void OnToTitleButtonClicked()
         {
-            SceneManager.LoadScene(titleScene);
+            sceneChanger.LoadScene(titleScene);
         }
         public void OnRetryButtonClicked()
         {
-            SceneManager.LoadScene(inGameScene);
+            sceneChanger.LoadScene(inGameScene);
         }
         private void OnDestroy()
         {

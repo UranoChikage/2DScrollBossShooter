@@ -1,7 +1,6 @@
 using Core;
 using System;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 namespace GamePlay
 {
@@ -15,8 +14,10 @@ namespace GamePlay
         [Header("状態の変化を受け取る対象")]
         [SerializeField] private Player player;
         [SerializeField] private Boss boss;
+        [Header("シーン遷移を行うSceneChanger")]
+        [SerializeField] private SceneChanger sceneChanger;
         public event Action<GameState> StateChanged;
-        public event Action<Device, bool> OnPauseMenuShowRequested;//PauseUIに通知するためのイベント。boolはtrueで表示、falseで非表示
+        public event Action<bool> OnPauseMenuShowRequested;//PauseUIに通知するためのイベント。boolはtrueで表示、falseで非表示
         public GameState State { get; private set; } = GameState.Intro;//最初は登場演出から始まる
         /// <summary>経過秒数。Playing中だけ進む。</summary>
         public float ElapsedTime { get; private set; }
@@ -30,15 +31,14 @@ namespace GamePlay
         [Header("シーン名(Build Settingsに登録しておく)")]
         [SerializeField] private string resultSceneName = "Result";
 
-        private const string BestTimeKey = "BestClearTime";
         private bool isPlayerIntroEnd;//Playerの登場演出が終わったか
         private bool isBossIntroEnd;//Bossの登場演出が終わったか
 
         private void Awake()
         {
-            if (player == null || boss == null)
+            if (player == null || boss == null || sceneChanger == null)
             {
-                Debug.LogError("PlayerまたはBossがアタッチされていません。");
+                Debug.LogError("Player・Boss・SceneChangerのどれかがアタッチされていません。");
                 enabled = false;
                 return;
             }
@@ -47,7 +47,6 @@ namespace GamePlay
             player.IntroEndEvent += OnPlayerIntroEnd;
             boss.IntroEndEvent += OnBossIntroEnd;
             player.OnPausePressed += TogglePause;
-            player.OnDeviceChanged += OnDeviceChanged;
             Time.timeScale = 1f;//タイトルへ戻る/リトライ後にtimeScaleが0のまま残らないように
         }
 
@@ -67,32 +66,25 @@ namespace GamePlay
             else if (State == GameState.Paused) Resume();
         }
 
-        /// <summary>
-        /// ポーズ中にデバイスが切り替わったら、メニューのヒントを切り替えさせる<br/>
-        /// PauseUIには表示の通知をもう一度送る。
-        /// </summary>
-        private void OnDeviceChanged(Device device)
-        {
-            if (State != GameState.Paused) return;
-            OnPauseMenuShowRequested?.Invoke(device, true);
-        }
-
         /// <summary>Playing中のみ一時停止する</summary>
         public void Pause()
         {
-            if (State != GameState.Playing) return;
+            if (State != GameState.Playing || sceneChanger.IsLoading) return;
             Time.timeScale = 0f;
             ChangeState(GameState.Paused);
-            OnPauseMenuShowRequested?.Invoke(player.LastDevice, true);
+            OnPauseMenuShowRequested?.Invoke(true);
         }
 
-        /// <summary>Paused中のみ再開する</summary>
+        /// <summary>
+        /// Paused中のみ再開する<br/>
+        /// タイトルやリトライへのフェード中は、ポーズを解除できない。
+        /// </summary>
         public void Resume()
         {
-            if (State != GameState.Paused) return;
+            if (State != GameState.Paused || sceneChanger.IsLoading) return;
             Time.timeScale = 1f;
             ChangeState(GameState.Playing);
-            OnPauseMenuShowRequested?.Invoke(player.LastDevice, false);
+            OnPauseMenuShowRequested?.Invoke(false);
         }
 
         /// <summary>
@@ -101,11 +93,7 @@ namespace GamePlay
         /// </summary>
         /// 「Null許容値型(Nullable)」の構文
         ///  通常のfloatは数値(初期値は 0f)しか持てないが"?"をつけることで「無効である」といった状態を表せるらしい。(Google調べ)
-        public static float? GetBestTime()//staticにして、GameManagerが居ないタイトルシーンからも呼べるようにする
-        {
-            if (!PlayerPrefs.HasKey(BestTimeKey)) return null;
-            return PlayerPrefs.GetFloat(BestTimeKey);
-        }
+        public static float? GetBestTime() => ClearRecords.GetBestTime();//staticにして、GameManagerが居ないタイトルシーンからも呼べるようにする
 
         /// <summary>
         /// リザルトシーンへ移る<br/>
@@ -114,7 +102,7 @@ namespace GamePlay
         public void GoToResult()
         {
             Time.timeScale = 1f;
-            SceneManager.LoadScene(resultSceneName);
+            sceneChanger.LoadScene(resultSceneName);
         }
 
         private void OnPlayerIntroEnd()
@@ -141,7 +129,7 @@ namespace GamePlay
 
         private void OnGameClear()
         {
-            SaveBestTime();
+            ClearRecords.Add(ElapsedTime);//ベスト5に入るなら保存される
             EndGame(true);
         }
 
@@ -161,17 +149,6 @@ namespace GamePlay
             ChangeState(GameState.Result);
         }
 
-        /// <summary>
-        /// 今回のタイムがベストより早ければ保存する。
-        /// </summary>
-        private void SaveBestTime()
-        {
-            float? best = GetBestTime();//初めての場合もあるのでnull許容型で受け取る
-            if (best != null && best <= ElapsedTime) return;
-            PlayerPrefs.SetFloat(BestTimeKey, ElapsedTime);
-            PlayerPrefs.Save();
-        }
-
         private void ChangeState(GameState next)
         {
             State = next;
@@ -182,7 +159,6 @@ namespace GamePlay
         private void OnDestroy()
         {
             if (player != null) player.OnPausePressed -= TogglePause;
-            if (player != null) player.OnDeviceChanged -= OnDeviceChanged;
             if (player != null) player.GameOverEvent -= OnGameOver;
             if (boss != null) boss.GameClearEvent -= OnGameClear;
             if (player != null) player.IntroEndEvent -= OnPlayerIntroEnd;

@@ -6,7 +6,7 @@ namespace GameUI
 {
     /// <summary>
     /// インゲームのUI全体を担当する<br/>
-    /// Bossの体力ゲージ、Playerの残機とボム、タイム、ベストタイム、操作ヒントを表示する。<br/>
+    /// Bossの体力ゲージ、Playerの残機とボム、タイム、ベストタイムを表示する。操作ヒントはDeviceHintTextが切り替える。<br/>
     /// 体力・残機・ボムは変化したときのイベントで更新し、毎フレーム変わるタイムだけポーリングする。
     /// </summary>
     public class InGameUI : MonoBehaviour
@@ -31,11 +31,6 @@ namespace GameUI
         [Header("タイム")]
         [SerializeField] private Text timeText;
         [SerializeField] private Text bestTimeText;
-
-        [Header("操作のヒント(使っているデバイスで表記を切り替える)")]
-        [SerializeField] private Text pauseHint;
-        [SerializeField] private Text fireHint;
-        [SerializeField] private Text bombHint;
 
         private void Awake()
         {
@@ -63,16 +58,9 @@ namespace GameUI
                 enabled = false;
                 return;
             }
-            if (pauseHint == null || fireHint == null || bombHint == null)
-            {
-                Debug.LogError("操作ヒントのTextがアタッチされていません。");
-                enabled = false;
-                return;
-            }
             boss.OnHealthChanged += UpdateBossGauge;
             player.OnHealthChanged += lifeCounter.SetCount;
             player.OnBombCountChanged += bombCounter.SetCount;
-            player.OnDeviceChanged += UpdateHints;
         }
 
         /// <summary>
@@ -86,16 +74,15 @@ namespace GameUI
             lifeCounter.SetCount(player.CurrentHealth);
             bombCounter.Init(player.MaxBombCount);
             bombCounter.SetCount(player.BombCount);
-            timeText.text = FormatTime(gameManager.ElapsedTime);
+            timeText.text = TimeFormatter.Format(gameManager.ElapsedTime);
             SetBestTimeText();
-            UpdateHints(player.LastDevice);
         }
 
         private void Update()
         {
             //ポーズ中・演出中・リザルト中はタイムが進まないので、書き換えない
             if (gameManager.State != GameState.Playing) return;
-            timeText.text = FormatTime(gameManager.ElapsedTime);
+            timeText.text = TimeFormatter.Format(gameManager.ElapsedTime);
         }
 
         /// <summary>
@@ -114,35 +101,7 @@ namespace GameUI
         private void SetBestTimeText()
         {
             float? best = GameManager.GetBestTime();//記録がない場合はnull
-            bestTimeText.text = best == null ? "BEST --:--.--" : $"BEST {FormatTime(best.Value)}";
-        }
-
-        /// <summary>
-        /// 最後に使われたデバイスに合わせて、ヒントの表記を切り替える<br/>
-        /// ゲームパッドはXboxの表記にしている。
-        /// </summary>
-        private void UpdateHints(Device device)
-        {
-            switch (device)
-            {
-                case Device.Keyboard:
-                    pauseHint.text = "ポーズ(Esc)";
-                    fireHint.text = "ショット(Space)";
-                    bombHint.text = "ボム(X)";
-                    break;
-                case Device.Gamepad:
-                    pauseHint.text = "ポーズ(Start)";
-                    fireHint.text = "ショット(B)";
-                    bombHint.text = "ボム(A)";
-                    break;
-            }
-        }
-
-        /// <summary>秒数を「分:秒.小数2桁」の形にする(例 : 01:05.23)</summary>
-        private string FormatTime(float seconds)
-        {
-            int minutes = (int)(seconds / 60f);
-            return $"{minutes:00}:{seconds % 60f:00.00}";
+            bestTimeText.text = best == null ? $"BEST {TimeFormatter.Empty}" : $"BEST {TimeFormatter.Format(best.Value)}";
         }
 
         private void OnDestroy()
@@ -152,7 +111,6 @@ namespace GameUI
             if (player == null) return;
             if (lifeCounter != null) player.OnHealthChanged -= lifeCounter.SetCount;
             if (bombCounter != null) player.OnBombCountChanged -= bombCounter.SetCount;
-            player.OnDeviceChanged -= UpdateHints;
         }
     }
 }

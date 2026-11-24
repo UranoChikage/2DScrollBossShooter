@@ -14,7 +14,5 @@ namespace Core
         bool OnCrouched { get; }//しゃがんだタイミングで呼ばれる。
         event Action OnBombPressed;
         event Action OnPausePressed;
-        Device LastDevice { get; }
-        event Action<Device> OnDeviceChanged;//LastDeviceが切り替わったときに呼ばれる
     }
 }

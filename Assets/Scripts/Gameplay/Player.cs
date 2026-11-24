@@ -3,8 +3,6 @@ using GamePlay.Input;
 using System;
 using System.Collections;
 using UnityEngine;
-using UnityEngine.InputSystem;
-using UnityEngine.InputSystem.Utilities;
 namespace GamePlay
 {
     /// <summary>
@@ -43,6 +41,10 @@ namespace GamePlay
         [Tooltip("Animatorにある登場演出のStateの名前")]
         [SerializeField] private string introStateName = "PlayerIntro";
 
+        [Header("ゲームオーバー")]
+        [Tooltip("撃墜Animationが終わってから、リザルトへ移るまでの時間(秒)")]
+        [SerializeField] private float gameOverWaitDuration = 1.5f;
+
         [Header("無敵(復活Animationが終わった直後)")]
         [Tooltip("点滅させるSpriteRenderer(Visual)")]
         [SerializeField] private SpriteRenderer spriteRenderer;
@@ -74,7 +76,6 @@ namespace GamePlay
         private float currentCoolTime = 0f;
         private bool isCoolTime;
         private InputSystem_Actions inputActions;
-        private IDisposable anyButtonSubscription;//onAnyButtonPressの購読解除用
 
         /// <summary>
         /// 操作できる状態か(GameManagerがPlayingのときだけtrue)<br/>
@@ -91,14 +92,12 @@ namespace GamePlay
         //IInputProvider=========================
         public Vector2 Move { get; private set; }
         public bool FireHeld { get; private set; }
-        public Device LastDevice { get; private set; }
         public event Action OnBombPressed;
         public event Action OnPausePressed;//GameManagerがポーズの切り替えに使う
         /// <summary>残機が変わったことをUIに伝える。引数は残りの残機</summary>
         public event Action<int> OnHealthChanged;
         /// <summary>ボムの数が変わったことをUIに伝える。引数は残りのボム</summary>
         public event Action<int> OnBombCountChanged;
-        public event Action<Device> OnDeviceChanged;//ポーズ中のヒント表示の切り替えに使う
         public bool OnCrouched { get; private set; }
         //=========================================
         public void TakeDamage(int damage)
@@ -150,15 +149,7 @@ namespace GamePlay
             CoolTimeCount();
             if (FireHeld && !isCoolTime) Fire();
         }
-        private void InputUpdate()
-        {
-            Move = inputActions.Player.Move.ReadValue<Vector2>();
-            if (Move != Vector2.zero)
-            {
-                //Moveを今動かしているコントロールのデバイス
-                UpdateLastDevice(inputActions.Player.Move.activeControl?.device);
-            }
-        }
+        private void InputUpdate() => Move = inputActions.Player.Move.ReadValue<Vector2>();
 
         private void PlayerMove()
         {
@@ -223,7 +214,7 @@ namespace GamePlay
         {
             Debug.Log("Game Over");
             OnBombPressed -= Bomb;
-            //TODO : Text表示、リザルトシーンへの遷移(GameManager.GoToResult())を追加する
+            //TODO : GameOverのText表示を追加する(リザルトへの遷移はGameOverRoutineで行う)
         }
 
         /// <summary>
@@ -251,7 +242,7 @@ namespace GamePlay
         }
 
         /// <summary>
-        /// 残機が0のとき : 撃墜Animationを最後まで流してからGameOverEventを呼ぶ
+        /// 残機が0のとき : 撃墜Animationを最後まで流してからGameOverEventを呼び、少し待ってリザルトへ移る
         /// </summary>
         private IEnumerator GameOverRoutine()
         {
@@ -265,6 +256,10 @@ namespace GamePlay
 
             State = PlayerState.GameOver;
             GameOverEvent?.Invoke();
+
+            //撃墜Animationの後にしばらく見せてから、リザルトへ移る
+            yield return new WaitForSeconds(gameOverWaitDuration);
+            if (gameManager != null) gameManager.GoToResult();
         }
 
         /// <summary>
@@ -303,28 +298,6 @@ namespace GamePlay
             if (animator != null) animator.Play(stateName);
         }
 
-        /// <summary>
-        /// 最後にボタンを押したデバイスを記録する<br/>
-        /// マウスのクリックもキーボードのキーもボタンなので、どちらもKeyboard扱いにしている。
-        /// </summary>
-        private void OnAnyButtonPressed(InputControl control) => UpdateLastDevice(control.device);
-
-        /// <summary>
-        /// 最後に使われたデバイスを更新する<br/>
-        /// OnAnyButtonPressedと、Moveの入力の両方から呼ばれる。
-        /// </summary>
-        private void UpdateLastDevice(InputDevice device)
-        {
-            Device next;
-            if (device is Gamepad) next = Device.Gamepad;
-            else if (device is Keyboard || device is Mouse) next = Device.Keyboard;
-            else return;//nullもここで弾かれる
-
-            if (next == LastDevice) return;
-            LastDevice = next;
-            Debug.Log($"{next}が最後に使われたデバイスになりました。");
-            OnDeviceChanged?.Invoke(next);
-        }
         private void InitInputActions()
         {
             inputActions = new InputSystem_Actions();
@@ -335,18 +308,8 @@ namespace GamePlay
             inputActions.Player.Bomb.performed += ctx => OnBombPressed?.Invoke();
             inputActions.Player.Pause.performed += ctx => OnPausePressed?.Invoke();
         }
-        private void OnEnable()
-        {
-            inputActions.Enable();
-            //最後にボタンを押したデバイスを記録する拡張メソッド、Call()を使うと、
-            //InputSystem.onAnyButtonPressに登録したActionが呼ばれるようになる。(Google調べ)
-            anyButtonSubscription = InputSystem.onAnyButtonPress.Call(OnAnyButtonPressed);
-        }
-        private void OnDisable()
-        {
-            inputActions.Disable();
-            anyButtonSubscription?.Dispose();
-        }
+        private void OnEnable() => inputActions.Enable();
+        private void OnDisable() => inputActions.Disable();
         private void OnDestroy()
         {
             inputActions.Dispose();
