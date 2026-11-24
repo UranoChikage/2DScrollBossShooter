@@ -49,7 +49,7 @@ MonoBehaviour:
   bulletCollider: {fileID: 3855207905749634446}
   spriteRenderer: {fileID: 8620248540359708286}
   speed: 5
-  damage: 0
+  damage: 1
   lifeSeconds: 20
   turnSpeed: 90
   maxHomingAngle: 30

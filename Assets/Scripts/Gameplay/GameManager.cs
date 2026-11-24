@@ -47,6 +47,7 @@ namespace GamePlay
             player.IntroEndEvent += OnPlayerIntroEnd;
             boss.IntroEndEvent += OnBossIntroEnd;
             player.OnPausePressed += TogglePause;
+            player.OnDeviceChanged += OnDeviceChanged;
             Time.timeScale = 1f;//タイトルへ戻る/リトライ後にtimeScaleが0のまま残らないように
         }
 
@@ -64,6 +65,16 @@ namespace GamePlay
         {
             if (State == GameState.Playing) Pause();
             else if (State == GameState.Paused) Resume();
+        }
+
+        /// <summary>
+        /// ポーズ中にデバイスが切り替わったら、メニューのヒントを切り替えさせる<br/>
+        /// PauseUIには表示の通知をもう一度送る。
+        /// </summary>
+        private void OnDeviceChanged(Device device)
+        {
+            if (State != GameState.Paused) return;
+            OnPauseMenuShowRequested?.Invoke(device, true);
         }
 
         /// <summary>Playing中のみ一時停止する</summary>
@@ -171,6 +182,7 @@ namespace GamePlay
         private void OnDestroy()
         {
             if (player != null) player.OnPausePressed -= TogglePause;
+            if (player != null) player.OnDeviceChanged -= OnDeviceChanged;
             if (player != null) player.GameOverEvent -= OnGameOver;
             if (boss != null) boss.GameClearEvent -= OnGameClear;
             if (player != null) player.IntroEndEvent -= OnPlayerIntroEnd;

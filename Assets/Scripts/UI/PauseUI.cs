@@ -3,6 +3,7 @@ using GamePlay;
 using GamePlay.Input;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 namespace GameUI
 {
     /// <summary>
@@ -15,17 +16,18 @@ namespace GameUI
 
         [SerializeField] private GameManager gameManager;
         [Header("PauseメニューのUI")]
-        [SerializeField] private GameObject pauseMenu_Keyboard;
-        [SerializeField] private GameObject pauseMenu_Gamepad;
+        [SerializeField] private GameObject menu;//Menu全体の親
+        [SerializeField] private Text toTitle;//デバイスによってヒントを切り替える
+        [SerializeField] private Text retry;//デバイスによってヒントを切り替える
 
         [SerializeField] private string inGameScene = "InGame";
         [SerializeField] private string titleScene = "Title";
         private InputSystem_Actions inputActions;
         private void Awake()
         {
-            if (pauseMenu_Keyboard == null || pauseMenu_Gamepad == null)
+            if (menu == null || toTitle == null || retry == null)
             {
-                Debug.LogError("Pauseメニューがアタッチされていません。");
+                Debug.LogError("メニューまたはTextがアタッチされていません。");
                 enabled = false;
                 return;
             }
@@ -49,13 +51,17 @@ namespace GameUI
         private void ShowPauseMenu(Device device)
         {
             inputActions.Menu.Enable();
+            menu.SetActive(true);
             switch (device)
             {
                 case Device.Keyboard:
-                    pauseMenu_Keyboard.SetActive(true);
+                    toTitle.text = "タイトルへ(T)";
+                    retry.text = "再挑戦(R)";
                     break;
                 case Device.Gamepad:
-                    pauseMenu_Gamepad.SetActive(true);
+                    //今回はXboxの表記にしている
+                    toTitle.text = "タイトルへ(Y)";
+                    retry.text = "再挑戦(X)";
                     break;
             }
         }
@@ -63,8 +69,7 @@ namespace GameUI
         private void HidePauseMenu()
         {
             inputActions.Menu.Disable();
-            pauseMenu_Keyboard.SetActive(false);
-            pauseMenu_Gamepad.SetActive(false);
+            menu.SetActive(false);
         }
         public void OnToTitleButtonClicked()
         {

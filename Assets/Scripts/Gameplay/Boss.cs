@@ -84,7 +84,16 @@ namespace GamePlay
         public event Action GameClearEvent;
         /// <summary>登場演出が終わったことをGameManagerに伝える</summary>
         public event Action IntroEndEvent;
+        /// <summary>体力が変わったことをUIに伝える。引数は残り体力の割合(0〜1)</summary>
+        public event Action<float> OnHealthChanged;
         public BossState State { get; private set; } = BossState.LinearPhase;
+
+        /// <summary>残り体力の割合(0〜1)</summary>
+        public float HealthRatio => Mathf.Clamp01((float)currentHealth / maxHealth);//これは機械が見るだけなのでわざわざ百分率にはしない。
+        /// <summary>第二段階に移る体力の割合(0〜1)。UIのゲージの区切りに使う。</summary>
+        public float SecondPhaseRatio => secondPhaseHealth / 100f;
+        /// <summary>第三段階に移る体力の割合(0〜1)。UIのゲージの区切りに使う。</summary>
+        public float ThirdPhaseRatio => thirdPhaseHealth / 100f;
 
         private int currentHealth;
         private float startY;
@@ -108,6 +117,7 @@ namespace GamePlay
             if (!IsPlaying) return;
             currentHealth -= damage;
             UpdateState();
+            OnHealthChanged?.Invoke(HealthRatio);
             HitFlash();
             if (currentHealth <= 0) GameClearEvent?.Invoke();
         }

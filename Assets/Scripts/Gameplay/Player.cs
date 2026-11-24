@@ -82,19 +82,31 @@ namespace GamePlay
         /// </summary>
         private bool IsPlaying => gameManager != null && gameManager.State == GameState.Playing;
 
+        //UIが表示に使う値
+        public int MaxHealth => maxHealth;
+        public int CurrentHealth => currentHealth;
+        public int MaxBombCount { get; private set; }
+        public int BombCount => bombCount;
+
         //IInputProvider=========================
         public Vector2 Move { get; private set; }
         public bool FireHeld { get; private set; }
         public Device LastDevice { get; private set; }
         public event Action OnBombPressed;
         public event Action OnPausePressed;//GameManagerがポーズの切り替えに使う
+        /// <summary>残機が変わったことをUIに伝える。引数は残りの残機</summary>
+        public event Action<int> OnHealthChanged;
+        /// <summary>ボムの数が変わったことをUIに伝える。引数は残りのボム</summary>
+        public event Action<int> OnBombCountChanged;
+        public event Action<Device> OnDeviceChanged;//ポーズ中のヒント表示の切り替えに使う
         public bool OnCrouched { get; private set; }
         //=========================================
         public void TakeDamage(int damage)
         {
             //撃墜・復活Anim中と無敵中はダメージを受けない。
             if (!IsPlaying || State != PlayerState.Alive || isInvincible) return;
-            currentHealth -= damage;
+            currentHealth = Mathf.Max(currentHealth - damage, 0);//UIに負の値が渡らないようにする
+            OnHealthChanged?.Invoke(currentHealth);
             if (IsGameOver()) StartCoroutine(GameOverRoutine());
             else StartCoroutine(DownAndRespawnRoutine());
         }
@@ -108,6 +120,7 @@ namespace GamePlay
             else baseColor = spriteRenderer.color;
             InitInputActions();
             currentHealth = maxHealth;
+            MaxBombCount = bombCount;//bombCountは使うたびに減るので、最大数を覚えておく
             OnBombPressed += Bomb;
             GameOverEvent += StopGame;
         }
@@ -190,6 +203,7 @@ namespace GamePlay
         {
             if (!IsPlaying || State != PlayerState.Alive || bombCount <= 0) return;//ポーズ中・撃墜/復活中はボムも使えない
             bombCount--;
+            OnBombCountChanged?.Invoke(bombCount);
             bombPool?.Get(transform.position);
         }
         /// <summary>
@@ -309,6 +323,7 @@ namespace GamePlay
             if (next == LastDevice) return;
             LastDevice = next;
             Debug.Log($"{next}が最後に使われたデバイスになりました。");
+            OnDeviceChanged?.Invoke(next);
         }
         private void InitInputActions()
         {
